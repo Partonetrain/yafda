@@ -36,4 +36,22 @@ neoForge {
     }
 }
 
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+}
+
+dependencies {
+    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.6"
+}
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
