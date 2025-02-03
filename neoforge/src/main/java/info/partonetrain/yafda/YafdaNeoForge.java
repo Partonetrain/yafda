@@ -1,20 +1,33 @@
 package info.partonetrain.yafda;
 
 
+import info.partonetrain.yafda.integration.DeeperDarkerIntegration;
+import info.partonetrain.yafda.item.YafdaKnifeItem;
+import info.partonetrain.yafda.platform.Services;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import vectorwing.farmersdelight.common.item.KnifeItem;
 
 @Mod(Constants.MOD_ID)
 public class YafdaNeoForge {
 
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(
+            BuiltInRegistries.ITEM,
+            Constants.MOD_ID
+    );
+
     public YafdaNeoForge(IEventBus eventBus) {
 
-        // This method is invoked by the NeoForge mod loader when it is ready
-        // to load your mod. You can access NeoForge and Common code in this
-        // project.
+        if(Services.PLATFORM.isModLoaded("deeperdarker")){
+            DeeperDarkerIntegration.load();
+        }
 
-        // Use NeoForge to bootstrap the Common mod.
-        Constants.LOG.info("Hello NeoForge world!");
+        ITEMS.register(eventBus);
         CommonClass.init();
 
     }

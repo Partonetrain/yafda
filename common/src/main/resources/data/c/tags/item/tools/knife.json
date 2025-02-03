@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "required": false,
+      "id": "yafda:resonarium_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:warden_knife"
+    },
+
+  ]
+}
