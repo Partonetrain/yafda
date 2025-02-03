@@ -35,7 +35,8 @@ public class YafdaNeoForge {
     }
 
     public void buildCreativeTabContants(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT) {
+        Constants.LOG.info(event.getTabKey().toString());
+        if (event.getTab() == ModCreativeTabs.TAB_FARMERS_DELIGHT.get()) {
             for (DeferredHolder<Item, ? extends Item> i : YafdaNeoForge.ITEMS.getEntries()) {
                 event.accept(i.get(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
