@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class DeeperDarkerIntegration {
     public static final DeferredHolder<Item, Item> RESONARIUM_KNIFE = YafdaNeoForge.ITEMS.register(
-            "warden_knife",
+            "resonarium_knife",
             () -> new YafdaKnifeItem(DDTiers.RESONARIUM)
     );
     public static final DeferredHolder<Item, Item> WARDEN_KNIFE = YafdaNeoForge.ITEMS.register(

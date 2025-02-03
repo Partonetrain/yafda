@@ -9,7 +9,6 @@ public class YafdaKnifeItem extends KnifeItem {
         super(tier, CreateKnifeProperties(tier));
     }
 
-
     public static Item.Properties CreateKnifeProperties(Tier tier) {
         return (new Item.Properties()).attributes(KnifeItem.createAttributes(tier, 0.5F, -2.0F));
     }
