@@ -3,6 +3,7 @@ package info.partonetrain.yafda;
 import info.partonetrain.yafda.integration.DeeperDarkerIntegration;
 import info.partonetrain.yafda.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -11,6 +12,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 @Mod(Constants.MOD_ID)
 public class YafdaNeoForge {
@@ -26,16 +28,16 @@ public class YafdaNeoForge {
             DeeperDarkerIntegration.load();
         }
 
+        eventBus.addListener(this::buildCreativeTabContants);
         ITEMS.register(eventBus);
         CommonClass.init();
 
     }
 
-    @SubscribeEvent
-    public static void buildCreativeTabContants(BuildCreativeModeTabContentsEvent event) {
+    public void buildCreativeTabContants(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT) {
-            for (DeferredHolder<Item, ? extends Item> i : ITEMS.getEntries()) {
-                event.accept(i.get());
+            for (DeferredHolder<Item, ? extends Item> i : YafdaNeoForge.ITEMS.getEntries()) {
+                event.accept(i.get(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
         }
     }
