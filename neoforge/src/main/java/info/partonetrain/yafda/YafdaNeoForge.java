@@ -1,6 +1,8 @@
 package info.partonetrain.yafda;
 
+import info.partonetrain.yafda.integration.AetherIntegration;
 import info.partonetrain.yafda.integration.DeeperDarkerIntegration;
+import info.partonetrain.yafda.integration.ThirstWasTakenIntegration;
 import info.partonetrain.yafda.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTab;
@@ -27,11 +29,16 @@ public class YafdaNeoForge {
         if(Services.PLATFORM.isModLoaded("deeperdarker")){
             DeeperDarkerIntegration.load();
         }
+        if(Services.PLATFORM.isModLoaded("aether")){
+            AetherIntegration.load();
+        }
+        if(Services.PLATFORM.isModLoaded("thirst")){
+            ThirstWasTakenIntegration.load();
+        }
 
         eventBus.addListener(this::buildCreativeTabContants);
         ITEMS.register(eventBus);
         CommonClass.init();
-
     }
 
     public void buildCreativeTabContants(BuildCreativeModeTabContentsEvent event) {
