@@ -58,6 +58,9 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+    }
 }
 
 dependencies {
@@ -67,6 +70,8 @@ dependencies {
     implementation "io.wispforest:owo-lib-neoforge:0.12.15-beta.12+1.21"
     implementation "org.sinytra.forgified-fabric-api:forgified-fabric-api:0.107.0+2.0.23+1.21.1"
     implementation "curse.maven:thirst-was-taken-679270:5857373"
+    implementation 'com.github.glitchfiend:TerraBlender-neoforge:1.21.1-4.1.0.8'
+    implementation 'maven.modrinth:deep-aether:1.21.1-1.1.1'
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

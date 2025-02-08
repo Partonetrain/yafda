@@ -1,0 +1,28 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "deeperdarker"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "deeperdarker"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "deeperdarker:resonarium_plate"
+  },
+  "base": {
+    "item": "farmersdelight:iron_knife"
+  },
+  "result": {
+    "count": 1,
+    "id": "yafda:resonarium_knife"
+  },
+  "template": []
+}

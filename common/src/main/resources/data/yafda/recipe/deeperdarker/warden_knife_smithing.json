@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "deeperdarker"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "deeperdarker"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "deeperdarker:reinforced_echo_shard"
+  },
+  "base": {
+    "item": "yafda:warden_knife"
+  },
+  "result": {
+    "count": 1,
+    "id": "farmersdelight:netherite_knife"
+  },
+  "template": {
+    "item": "deeperdarker:warden_upgrade_smithing_template"
+  }
+}

@@ -1,6 +1,7 @@
 package info.partonetrain.yafda;
 
 import info.partonetrain.yafda.integration.AetherIntegration;
+import info.partonetrain.yafda.integration.DeepAetherIntegration;
 import info.partonetrain.yafda.integration.DeeperDarkerIntegration;
 import info.partonetrain.yafda.integration.ThirstWasTakenIntegration;
 import info.partonetrain.yafda.platform.Services;
@@ -31,6 +32,9 @@ public class YafdaNeoForge {
         }
         if(Services.PLATFORM.isModLoaded("aether")){
             AetherIntegration.load();
+            if(Services.PLATFORM.isModLoaded("deep_aether")) {
+                DeepAetherIntegration.load();
+            }
         }
         if(Services.PLATFORM.isModLoaded("thirst")){
             ThirstWasTakenIntegration.load();

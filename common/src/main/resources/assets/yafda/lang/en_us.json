@@ -1,7 +1,14 @@
 {
   "item.yafda.resonarium_knife": "Resonarium Knife",
   "item.yafda.warden_knife": "Warden Knife",
+  "item.yafda.soulffle": "Soulfflé",
 
+  "item.yafda.holystone_knife": "Holystone Knife",
+  "item.yafda.zanite_knife": "Zanite Knife",
+  "item.yafda.gravitite_knife": "Gravitite Knife",
   "item.yafda.sky_blue_shake": "Sky-Blue Shake",
-  "farmersdelight.tooltip.sky_blue_shake": "Clears 1 Harmful Effect"
+  "farmersdelight.tooltip.sky_blue_shake": "Clears 1 Harmful Effect",
+
+  "item.yafda.skyjade_knife": "Skyjade Knife",
+  "item.yafda.stratus_knife": "Stratus Knife"
 }
