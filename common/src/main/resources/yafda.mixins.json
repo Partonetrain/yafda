@@ -6,8 +6,7 @@
   "compatibilityLevel": "JAVA_18",
   "mixins": [],
   "client": [
-    "ItemRendererMixin",
-    "MixinMinecraft"
+    "ItemRendererMixin"
   ],
   "server": [],
   "injectors": {

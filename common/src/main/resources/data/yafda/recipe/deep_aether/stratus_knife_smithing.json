@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "deep_aether"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "deep_aether"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "deep_aether:stratus_ingot"
+  },
+  "base": {
+    "item": "yafda:gravitite_knife"
+  },
+  "result": {
+    "count": 1,
+    "id": "yafda:stratus_knife"
+  },
+  "template": {
+    "item": "deep_aether:stratus_smithing_template"
+  }
+}
