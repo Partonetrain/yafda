@@ -24,8 +24,8 @@
     }
   },
   "pattern": [
-    "m",
-    "s"
+    "s",
+    "m"
   ],
   "result": {
     "count": 1,
