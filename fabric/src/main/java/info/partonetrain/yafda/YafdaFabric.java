@@ -6,8 +6,6 @@ public class YafdaFabric implements ModInitializer {
     
     @Override
     public void onInitialize() {
-        
-
         CommonClass.init();
     }
 }

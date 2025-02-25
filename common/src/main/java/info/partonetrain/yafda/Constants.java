@@ -13,5 +13,6 @@ public class Constants {
 	public static final String MOD_NAME = "YAFDA";
 	public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
+	public static final ResourceLocation FD_BACKSTABBING_ENCHANTMENT_EFFECT = ResourceLocation.fromNamespaceAndPath("farmersdelight","backstabbing");
 	public static final TagKey<Item> KNIFE_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "tools/knife"));
 }

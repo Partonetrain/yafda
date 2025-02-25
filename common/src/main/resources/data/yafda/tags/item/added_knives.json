@@ -1,0 +1,37 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "required": false,
+      "id": "yafda:resonarium_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:warden_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:holystone_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:zanite_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:zanite_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:gravitite_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:skyjade_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:stratus_knife"
+    }
+  ]
+}
