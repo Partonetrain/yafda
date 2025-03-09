@@ -1,0 +1,41 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "aether"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "aether:skyroot_shovel"
+    },
+    "W": {
+      "item": "aether:skyroot_water_bucket"
+    },
+    "b": {
+      "item": "aether:holystone"
+    },
+    "i": {
+      "tag": "aether:gems/zanite"
+    }
+  },
+  "pattern": [
+    "bSb",
+    "iWi",
+    "iii"
+  ],
+  "result": {
+    "count": 1,
+    "id": "farmersdelight:cooking_pot"
+  }
+}

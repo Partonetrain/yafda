@@ -72,6 +72,7 @@ dependencies {
     implementation "curse.maven:thirst-was-taken-679270:5857373"
     implementation 'com.github.glitchfiend:TerraBlender-neoforge:1.21.1-4.1.0.8'
     implementation 'maven.modrinth:deep-aether:1.21.1-1.1.1'
+    implementation 'maven.modrinth:brewin-and-chewin:4.0.3+1.21.1-neoforge'
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

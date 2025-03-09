@@ -1,0 +1,12 @@
+{
+    "values":[
+        {
+            "required": false,
+            "id": "deeperdarker:bloom_berries"
+        },
+        {
+            "required": false,
+            "id": "deep_aether:goldenleaf_berries"
+        }
+    ]
+}

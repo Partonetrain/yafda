@@ -1,0 +1,49 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "deep_aether"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "deep_aether",
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "base_fluid": {
+    "amount": 1000,
+    "ingredient": {
+      "tag": "#c:milk"
+    },
+    "unit": "millibuckets"
+  },
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "deep_aether:lightcap_mushrooms"
+    },
+    {
+      "item": "deep_aether:squash_seeds"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    []
+  ],
+  "result": {
+    "amount": 1000,
+    "id": "brewinandchewin:flaxen_cheese"
+  },
+  "temperature": 4,
+  "unit": "millibuckets"
+}

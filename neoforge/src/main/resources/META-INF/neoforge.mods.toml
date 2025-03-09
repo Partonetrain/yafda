@@ -9,20 +9,20 @@ displayName = "${mod_name}"
 logoFile="assets/yafda/icon.png" 
 credits="${credits}" 
 authors = "${mod_author}" 
-description = '''${description}'''  (Supports multiline text)
+description = '''${description}'''
 [[mixins]]
 config = "${mod_id}.mixins.json"
 [[mixins]]
 config = "${mod_id}.neoforge.mixins.json"
 [[dependencies.${mod_id}]] 
 modId = "neoforge" 
-type="required"  (Can be one of "required", "optional", "incompatible" or "discouraged")
+type="required"
 versionRange = "[${neoforge_version},)" 
 ordering = "NONE" # The order that this dependency should load in relation to your mod, required to be either 'BEFORE' or 'AFTER' if the dependency is not mandatory
 side = "BOTH" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER'
 [[dependencies.${mod_id}]]
 modId = "minecraft"
-type="required"  (Can be one of "required", "optional", "incompatible" or "discouraged")
+type="required"
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
@@ -38,6 +38,11 @@ ordering = "AFTER"
 side = "BOTH"
 [[dependencies.${mod_id}]]
 modId = "thirst" #Thirst Was Taken
+type="optional"
+ordering = "AFTER"
+side = "BOTH"
+[[dependencies.${mod_id}]]
+modId = "brewinandchewin" #Brewin and Chewin
 type="optional"
 ordering = "AFTER"
 side = "BOTH"

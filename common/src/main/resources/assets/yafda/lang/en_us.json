@@ -1,4 +1,6 @@
 {
+
+
   "item.yafda.resonarium_knife": "Resonarium Knife",
   "item.yafda.warden_knife": "Warden Knife",
   "item.yafda.soulffle": "Soulfflé",
@@ -11,5 +13,8 @@
   "farmersdelight.tooltip.sky_blue_shake": "Clears 1 Harmful Effect",
 
   "item.yafda.skyjade_knife": "Skyjade Knife",
-  "item.yafda.stratus_knife": "Stratus Knife"
+  "item.yafda.stratus_knife": "Stratus Knife",
+
+  "item.yafda.blue_berry_jam": "Blue Berry Jam",
+  "item.yafda.bloom_brandy": "Bloomin' Brandy"
 }

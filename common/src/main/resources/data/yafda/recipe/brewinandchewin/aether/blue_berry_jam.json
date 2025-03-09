@@ -3,22 +3,27 @@
     {
       "type": "neoforge:mod_loaded",
       "modid": "aether"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "brewinandchewin"
     }
   ],
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
-        "aether"
+        "aether",
+        "brewinandchewin"
       ]
     }
   ],
   "type": "farmersdelight:cooking",
-  "experience": 1.0,
   "container": {
     "count": 1,
     "id": "minecraft:glass_bottle"
   },
+  "experience": 1.0,
   "ingredients": [
     {
       "item": "aether:blue_berry"
@@ -27,15 +32,15 @@
       "item": "aether:blue_berry"
     },
     {
-      "item": "minecraft:sugar"
+      "item": "aether:blue_berry"
     },
     {
-      "tag": "c:foods/milk"
+      "item": "minecraft:sugar"
     }
   ],
-  "recipe_book_tab": "drinks",
+  "recipe_book_tab": "misc",
   "result": {
     "count": 1,
-    "id": "yafda:sky_blue_shake"
+    "id": "yafda:blue_berry_jam"
   }
 }
