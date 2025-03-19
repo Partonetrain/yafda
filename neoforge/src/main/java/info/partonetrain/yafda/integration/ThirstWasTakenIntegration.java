@@ -18,5 +18,11 @@ public class ThirstWasTakenIntegration {
         if(Services.PLATFORM.isModLoaded("aether")){
             event.addDrink(AetherIntegration.SKY_BLUE_SHAKE.get(), 6, 8);
         }
+
+        if(Services.PLATFORM.isModLoaded("brewinandchewin")){
+            if(Services.PLATFORM.isModLoaded("deeperdarker")){
+                event.addDrink(BrewinAndChewinIntegration.bloomBrandyItem.get(), 10, 14);
+            }
+        }
     }
 }

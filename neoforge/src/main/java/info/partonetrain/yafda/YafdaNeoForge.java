@@ -24,13 +24,13 @@ public class YafdaNeoForge {
             BuiltInRegistries.ITEM,
             Constants.MOD_ID
     );
+    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(
+            BuiltInRegistries.FLUID,
+            Constants.MOD_ID
+    );
 
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(
             NeoForgeRegistries.Keys.FLUID_TYPES,
-            Constants.MOD_ID
-    );
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(
-            BuiltInRegistries.FLUID,
             Constants.MOD_ID
     );
 

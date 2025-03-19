@@ -10,3 +10,8 @@ YAFDA currently has support for:
 Versions marked as ALPHA have work-in-progress textures, but should function fine.
 I am open to suggestions about other mods to add support to.
 For cupboards and wood-related cutting recipes, I highly recommend EveryCompat.
+
+### Fabric?
+The development repository supports Fabric, but unfortunately due to the large amount of cross-mod support and the lack of common APIs for said mods,
+YAFDA on Fabric isn't able to use any code from the NeoForge version. Therefore, YAFDA development will target NeoForge.
+If you would like to port YAFDA to Fabric, you may submit a pull request.
