@@ -17,7 +17,7 @@ import umpaz.brewinandchewin.common.item.JamJarItem;
 import umpaz.brewinandchewin.common.registry.BnCEffects;
 import umpaz.brewinandchewin.common.registry.BnCFoods;
 import umpaz.brewinandchewin.common.registry.BnCItems;
-import vectorwing.farmersdelight.common.registry.ModEffects;
+import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
 
 import java.util.function.Supplier;
 
@@ -27,7 +27,7 @@ public class BrewinAndChewinIntegration {
     public static Supplier<FlowingFluid> bloomBrandy = null;
     public static Supplier<FlowingFluid> bloomBrandyFlowing = null;
     public static Supplier<FluidType> bloomBrandyFluidType = null;
-    static DeferredHolder<Item, Item> bloomBrandyItem;
+    static DeferredHolder<Item, Item> bloomBrandyTankard;
 
     private static BaseFlowingFluid.Properties getBrandyProperties() {
         return new BaseFlowingFluid.Properties(bloomBrandyFluidType, bloomBrandy, bloomBrandyFlowing);
@@ -41,19 +41,19 @@ public class BrewinAndChewinIntegration {
             );
         }
         if(Services.PLATFORM.isModLoaded("deeperdarker")){
-            bloomBrandyFluidType = YafdaNeoForge.FLUID_TYPES.register("bloom_brandy",  () -> new FluidType(FluidType.Properties.create().lightLevel(0).density(800).viscosity(1500)));
+            bloomBrandyFluidType = YafdaNeoForge.FLUID_TYPES.register("bloom_brandy",  () -> new BnCFluidType());
 
             bloomBrandy = YafdaNeoForge.FLUIDS.register("bloom_brandy", () -> new BaseFlowingFluid.Source(getBrandyProperties()));
             bloomBrandyFlowing = YafdaNeoForge.FLUIDS.register("bloom_brandy_flowing", () -> new BaseFlowingFluid.Source(getBrandyProperties()));
 
-            bloomBrandyItem = YafdaNeoForge.ITEMS.register(
-                    "bloom_brandy",
+            bloomBrandyTankard = YafdaNeoForge.ITEMS.register(
+                    "bloom_brandy_tankard",
                     () -> new BoozeItem(() -> bloomBrandyFlowing.get(), new Item.Properties()
                             .stacksTo(16).craftRemainder(BnCItems.TANKARD).food(
                                     new FoodProperties.Builder()
                                 .effect(new MobEffectInstance(BnCEffects.TIPSY, 2400, 0), 1.0F)
                                 .effect(new MobEffectInstance(BnCEffects.INTOXICATION, 1800, 0, false, false), 1.0F)
-                                .effect(new MobEffectInstance(MobEffects.GLOWING, 12000, 0), 1.0F)
+                                .effect(new MobEffectInstance(MobEffects.GLOWING, 6000, 0), 1.0F)
                                 .alwaysEdible()
                                 .build()
                             )

@@ -54,6 +54,8 @@ public class YafdaNeoForge {
 
         eventBus.addListener(this::buildCreativeTabContants);
         ITEMS.register(eventBus);
+        FLUID_TYPES.register(eventBus);
+        FLUIDS.register(eventBus);
         CommonClass.init();
     }
 

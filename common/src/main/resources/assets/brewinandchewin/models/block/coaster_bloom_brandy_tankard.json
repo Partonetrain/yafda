@@ -1,0 +1,7 @@
+{
+  "parent": "brewinandchewin:block/coaster_tankard",
+  "textures": {
+    "particle": "brewinandchewin:block/bloom_brandy_tankard",
+    "tankard": "brewinandchewin:block/bloom_brandy_tankard"
+  }
+}

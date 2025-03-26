@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "deeperdarker"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "deeperdarker",
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": {
+    "amount": 250,
+    "id": "yafda:bloom_brandy"
+  },
+  "output": {
+    "count": 1,
+    "id": "yafda:bloom_brandy_tankard"
+  },
+  "unit": "millibuckets"
+}

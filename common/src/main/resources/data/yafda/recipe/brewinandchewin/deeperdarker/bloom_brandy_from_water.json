@@ -1,0 +1,47 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "deeperdarker"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "deeperdarker",
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "base_fluid": {
+    "amount": 1000,
+    "ingredient": {
+      "tag": "#c:water"
+    },
+    "unit": "millibuckets"
+  },
+  "experience": 1.0,
+  "temperature": 4,
+  "ingredients": [
+    {
+      "tag": "c:crops/wheat"
+    },
+    {
+      "item": "deeperdarker:bloom_berries"
+    },
+    {
+      "item": "deeperdarker:bloom_berries"
+    }
+  ],
+  "result": {
+    "amount": 1000,
+    "id": "yafda:bloom_brandy"
+  },
+  "unit": "millibuckets"
+}

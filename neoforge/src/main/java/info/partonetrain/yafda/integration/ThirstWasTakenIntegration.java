@@ -21,7 +21,7 @@ public class ThirstWasTakenIntegration {
 
         if(Services.PLATFORM.isModLoaded("brewinandchewin")){
             if(Services.PLATFORM.isModLoaded("deeperdarker")){
-                event.addDrink(BrewinAndChewinIntegration.bloomBrandyItem.get(), 10, 14);
+                event.addDrink(BrewinAndChewinIntegration.bloomBrandyTankard.get(), 10, 14);
             }
         }
     }
