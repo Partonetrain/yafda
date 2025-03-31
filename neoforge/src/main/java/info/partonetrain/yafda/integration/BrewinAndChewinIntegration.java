@@ -1,7 +1,9 @@
 package info.partonetrain.yafda.integration;
 
 import info.partonetrain.yafda.Constants;
+import info.partonetrain.yafda.fluid.WateryFluid;
 import info.partonetrain.yafda.YafdaNeoForge;
+import info.partonetrain.yafda.item.ConsumableEffectItem;
 import info.partonetrain.yafda.platform.Services;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -17,17 +19,24 @@ import umpaz.brewinandchewin.common.item.JamJarItem;
 import umpaz.brewinandchewin.common.registry.BnCEffects;
 import umpaz.brewinandchewin.common.registry.BnCFoods;
 import umpaz.brewinandchewin.common.registry.BnCItems;
-import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.function.Supplier;
 
 public class BrewinAndChewinIntegration {
 
-    public static final int BLOOM_BRANDY_COLOR = 0xFFFBB117;
+    public static final int BLOOM_BRANDY_COLOR = 0xEED98800;
     public static Supplier<FlowingFluid> bloomBrandy = null;
     public static Supplier<FlowingFluid> bloomBrandyFlowing = null;
     public static Supplier<FluidType> bloomBrandyFluidType = null;
     static DeferredHolder<Item, Item> bloomBrandyTankard;
+    public static final FoodProperties MARMALADE_SANDWICH_PROPERTIES = (new FoodProperties.Builder()).nutrition(10).saturationModifier(0.8F).effect(() -> {
+        return new MobEffectInstance(BnCEffects.SWEET_HEART.getDelegate(), 1200, 0);
+    }, 1.0F).build();
+
+    public static final DeferredHolder<Item, Item> MARMALADE_SANDWICH = YafdaNeoForge.ITEMS.register(
+            "marmalade_sandwich",() -> new ConsumableEffectItem(ModItems.foodItem(MARMALADE_SANDWICH_PROPERTIES)
+    ));
 
     private static BaseFlowingFluid.Properties getBrandyProperties() {
         return new BaseFlowingFluid.Properties(bloomBrandyFluidType, bloomBrandy, bloomBrandyFlowing);
@@ -41,7 +50,7 @@ public class BrewinAndChewinIntegration {
             );
         }
         if(Services.PLATFORM.isModLoaded("deeperdarker")){
-            bloomBrandyFluidType = YafdaNeoForge.FLUID_TYPES.register("bloom_brandy",  () -> new BnCFluidType());
+            bloomBrandyFluidType = YafdaNeoForge.FLUID_TYPES.register("bloom_brandy",  () -> new WateryFluid(FluidType.Properties.create(), BLOOM_BRANDY_COLOR));
 
             bloomBrandy = YafdaNeoForge.FLUIDS.register("bloom_brandy", () -> new BaseFlowingFluid.Source(getBrandyProperties()));
             bloomBrandyFlowing = YafdaNeoForge.FLUIDS.register("bloom_brandy_flowing", () -> new BaseFlowingFluid.Source(getBrandyProperties()));
@@ -60,7 +69,6 @@ public class BrewinAndChewinIntegration {
                 ));
         }
     }
-
 
     public static void load(){
         Constants.LOG.info("BrewinAndChewin integration loaded");

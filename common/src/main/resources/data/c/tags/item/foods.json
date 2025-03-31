@@ -11,6 +11,10 @@
     {
       "required": false,
       "id": "yafda:blue_berry_jam"
+    },
+    {
+      "required": false,
+      "id": "yafda:marmalade_sandwich"
     }
   ]
 }
