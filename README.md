@@ -6,6 +6,10 @@ YAFDA currently has support for:
 - Deep Aether
 - Deeper and Darker
 - Thirst was Taken
+- Brewin' and Chewin
+
+All items, and their dependent mods:
+![All Items](https://raw.githubusercontent.com/Partonetrain/yafda/refs/heads/1.21.1/all_items.png)
 
 Versions marked as ALPHA have work-in-progress textures, but should function fine.
 I am open to suggestions about other mods to add support to.
