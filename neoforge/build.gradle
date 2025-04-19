@@ -61,6 +61,10 @@ repositories {
     repositories {
         maven { url = 'https://maven.minecraftforge.net/' }
     }
+    maven {
+        name = "Curios"
+        url = uri("https://maven.theillusivec4.top/")
+    }
 }
 
 dependencies {
@@ -73,6 +77,11 @@ dependencies {
     implementation 'com.github.glitchfiend:TerraBlender-neoforge:1.21.1-4.1.0.8'
     implementation 'maven.modrinth:deep-aether:1.21.1-1.1.1'
     implementation 'maven.modrinth:brewin-and-chewin:4.2.3+1.21.1-neoforge'
+    implementation 'maven.modrinth:geckolib:QEqpUJ1G'
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:9.4.2+1.21.1"
+    //ars nouvaeu modrinth page isn't updated...
+    implementation 'maven.modrinth:arsdelight:2.1.5'
+    //ars elemental isn't on modrinth...
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

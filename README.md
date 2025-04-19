@@ -1,17 +1,19 @@
 Yet Another Farmer's Delight addon is a mod that adds Farmer's Delight knives and some foods for the mods listed below.
 It arose from a discussion on the Violet Moon discord about there being too many Farmer's Delight addons, and the lack of a "general material compatibility" mod for knives.
 
-YAFDA currently has support for:
+YAFDA adds content for the following mods:
 - Aether (incl. Altar repair recipes)
 - Deep Aether
 - Deeper and Darker
 - Thirst was Taken
 - Brewin' and Chewin
 
+Additionally, YAFDA adds even more content if the following pairs of mods are installed:
+- Ars Elemental and Ars Nouveau Flavors and Delight
+
 All items, and their dependent mods:
 ![All Items](https://raw.githubusercontent.com/Partonetrain/yafda/refs/heads/1.21.1/all_items.png)
 
-Versions marked as ALPHA have work-in-progress textures, but should function fine.
 I am open to suggestions about other mods to add support to.
 For cupboards and wood-related cutting recipes, I highly recommend EveryCompat.
 

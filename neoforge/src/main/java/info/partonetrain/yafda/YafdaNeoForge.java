@@ -52,6 +52,11 @@ public class YafdaNeoForge {
             ThirstWasTakenIntegration.load();
         }
 
+
+        if(Services.PLATFORM.isModLoaded("ars_elemental") && Services.PLATFORM.isModLoaded("arsdelight")){
+            ArsElementalDelightIntegration.load();
+        }
+
         eventBus.addListener(this::buildCreativeTabContants);
         ITEMS.register(eventBus);
         FLUID_TYPES.register(eventBus);
