@@ -15,6 +15,10 @@
     {
       "required": false,
       "id": "yafda:marmalade_sandwich"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_jelly"
     }
   ]
 }
