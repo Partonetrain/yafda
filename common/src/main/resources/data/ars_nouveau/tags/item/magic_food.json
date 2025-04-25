@@ -1,0 +1,28 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "arsdelight"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ars_elemental"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": ["arsdelight", "ars_elemental"]
+    }
+  ],
+  "values": [
+    {
+      "required": false,
+      "id": "yafda:flashpine_jelly"
+    },
+    {
+      "required": false,
+      "id": "neutralized_flashpine_jam"
+    }
+  ]
+}

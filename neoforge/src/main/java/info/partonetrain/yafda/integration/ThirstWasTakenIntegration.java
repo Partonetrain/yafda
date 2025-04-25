@@ -24,5 +24,9 @@ public class ThirstWasTakenIntegration {
                 event.addDrink(BrewinAndChewinIntegration.bloomBrandyTankard.get(), 10, 14);
             }
         }
+
+        if(Services.PLATFORM.isModLoaded("arsdelight") && Services.PLATFORM.isModLoaded("ars_elemental")){
+            //event.addDrink(ArsElementalDelightIntegration.SKY_BLUE_SHAKE.get(), 6, 8);
+        }
     }
 }

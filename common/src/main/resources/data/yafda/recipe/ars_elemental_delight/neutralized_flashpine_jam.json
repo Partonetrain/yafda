@@ -21,7 +21,7 @@
   "type": "farmersdelight:cooking",
   "container": {
     "count": 1,
-    "id": "minecraft:bowl"
+    "id": "minecraft:glass_bottle"
   },
   "experience": 0.1,
   "ingredients": [
@@ -35,18 +35,11 @@
       "item": "yafda:flashing_bark"
     },
     {
-      "item": "ars_nouveau:sourceberry_bush"
-    },
-    {
-      "item": "minecraft:slime_ball"
-    },
-    {
       "item": "minecraft:sugar"
     }
   ],
-  "recipe_book_tab": "misc",
+  "recipe_book_tab": "drinks",
   "result": {
-    "count": 1,
-    "id": "yafda:flashpine_jelly"
+    "item": "yafda:neutralized_flashpine_jam"
   }
 }

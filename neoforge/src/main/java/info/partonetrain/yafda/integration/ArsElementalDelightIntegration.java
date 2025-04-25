@@ -13,21 +13,26 @@ import dev.xkmc.l2modularblock.type.BlockMethod;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import info.partonetrain.yafda.Constants;
 import info.partonetrain.yafda.YafdaNeoForge;
+import info.partonetrain.yafda.item.ConsumableEffectItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -43,6 +48,16 @@ public class ArsElementalDelightIntegration {
     public static final DeferredHolder<Item, Item> FLASHING_BARK = YafdaNeoForge.ITEMS.register(
             "flashing_bark",
             () -> new FuelItem(new Item.Properties(), 200)
+    );
+
+    public static final DeferredHolder<Block, Block> FLASHPINE_CRATE_BLOCK = YafdaNeoForge.BLOCKS.register(
+            "flashpine_crate",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD))
+    );
+
+    public static final DeferredHolder<Item, Item> FLASHPINE_CRATE_ITEM = YafdaNeoForge.ITEMS.register(
+            "flashpine_crate",
+            () -> new BlockItem(FLASHPINE_CRATE_BLOCK.get(), new Item.Properties())
     );
 
     public static final DeferredHolder<Block, Block> FLASHPINE_JELLY_BLOCK = YafdaNeoForge.BLOCKS.register(
@@ -75,6 +90,14 @@ public class ArsElementalDelightIntegration {
                         builder
                 );
             }
+    );
+
+    public static final FoodProperties NEUTRALIZED_FLASHPINE_JAM_PROPERTIES = (new FoodProperties.Builder()).nutrition(0).saturationModifier(0.0F).effect(() -> {
+        return new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 0);
+    }, 1.0F).build();
+    public static final DeferredHolder<Item, Item> NEUTRALIZED_FLASHPINE_JAM = YafdaNeoForge.ITEMS.register(
+            "neutralized_flashpine_jam",
+            () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.foodItem(NEUTRALIZED_FLASHPINE_JAM_PROPERTIES))
     );
 
     public static void load(){
