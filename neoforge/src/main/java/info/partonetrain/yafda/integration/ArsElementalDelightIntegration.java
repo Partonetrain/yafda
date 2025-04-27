@@ -7,15 +7,19 @@ import dev.xkmc.arsdelight.content.jelly.JellyAttachment;
 import dev.xkmc.arsdelight.content.jelly.JellyBlockEntity;
 import dev.xkmc.arsdelight.content.jelly.JellyMethod;
 import dev.xkmc.arsdelight.init.food.BlockFoodType;
+import dev.xkmc.arsdelight.init.registrate.ADItems;
 import dev.xkmc.l2modularblock.core.DelegateEntityBlockImpl;
 import dev.xkmc.l2modularblock.impl.BlockEntityBlockMethodImpl;
 import dev.xkmc.l2modularblock.type.BlockMethod;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import info.partonetrain.yafda.Constants;
 import info.partonetrain.yafda.YafdaNeoForge;
+import info.partonetrain.yafda.item.ConsumableEffectDrinkItem;
 import info.partonetrain.yafda.item.ConsumableEffectItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -40,8 +44,11 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import vectorwing.farmersdelight.common.item.FuelItem;
+import vectorwing.farmersdelight.common.item.MelonJuiceItem;
 
 import java.util.function.Supplier;
+
+import static vectorwing.farmersdelight.common.registry.ModItems.drinkItem;
 
 //Integration for Ars Elemental + Ars Delight
 public class ArsElementalDelightIntegration {
@@ -92,12 +99,29 @@ public class ArsElementalDelightIntegration {
             }
     );
 
-    public static final FoodProperties NEUTRALIZED_FLASHPINE_JAM_PROPERTIES = (new FoodProperties.Builder()).nutrition(0).saturationModifier(0.0F).effect(() -> {
+    public static final FoodProperties NEUTRALIZED_FLASHPINE_JAM_PROPERTIES = (new FoodProperties.Builder()).nutrition(0).alwaysEdible().saturationModifier(0.0F).effect(() -> {
         return new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 0);
     }, 1.0F).build();
     public static final DeferredHolder<Item, Item> NEUTRALIZED_FLASHPINE_JAM = YafdaNeoForge.ITEMS.register(
             "neutralized_flashpine_jam",
-            () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.foodItem(NEUTRALIZED_FLASHPINE_JAM_PROPERTIES))
+            () -> new ConsumableEffectDrinkItem(NEUTRALIZED_FLASHPINE_JAM_PROPERTIES, true)
+    );
+    public static final FoodProperties FLASHPINE_PIE_SLICE_PROPERTIES = (new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3F).fast().effect(() -> {
+        return new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0);
+    }, 1.0F).build();
+
+    public static final DeferredHolder<Item, Item> FLASHPINE_PIE_SLICE = YafdaNeoForge.ITEMS.register(
+            "flashpine_pie_slice",
+            () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.foodItem(FLASHPINE_PIE_SLICE_PROPERTIES))
+    );
+
+    public static final FoodProperties FLASHPINE_HORNBEER_PROPERTIES = (new FoodProperties.Builder()).fast().alwaysEdible().nutrition(0).saturationModifier(0.0F).effect(() -> {
+        return new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 1);
+    }, 1.0F).build();
+
+    public static final DeferredHolder<Item, Item> FLASHPINE_HORNBEER = YafdaNeoForge.ITEMS.register(
+            "flashpine_hornbeer",
+            () -> new ConsumableEffectDrinkItem(FLASHPINE_HORNBEER_PROPERTIES, false, BuiltInRegistries.ITEM.get(ResourceLocation.parse("arsdelight:chimera_horn")))
     );
 
     public static void load(){
