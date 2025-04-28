@@ -7,7 +7,6 @@ import dev.xkmc.arsdelight.content.jelly.JellyAttachment;
 import dev.xkmc.arsdelight.content.jelly.JellyBlockEntity;
 import dev.xkmc.arsdelight.content.jelly.JellyMethod;
 import dev.xkmc.arsdelight.init.food.BlockFoodType;
-import dev.xkmc.arsdelight.init.registrate.ADItems;
 import dev.xkmc.l2modularblock.core.DelegateEntityBlockImpl;
 import dev.xkmc.l2modularblock.impl.BlockEntityBlockMethodImpl;
 import dev.xkmc.l2modularblock.type.BlockMethod;
@@ -43,12 +42,11 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import vectorwing.farmersdelight.common.block.PieBlock;
 import vectorwing.farmersdelight.common.item.FuelItem;
-import vectorwing.farmersdelight.common.item.MelonJuiceItem;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.function.Supplier;
-
-import static vectorwing.farmersdelight.common.registry.ModItems.drinkItem;
 
 //Integration for Ars Elemental + Ars Delight
 public class ArsElementalDelightIntegration {
@@ -106,13 +104,31 @@ public class ArsElementalDelightIntegration {
             "neutralized_flashpine_jam",
             () -> new ConsumableEffectDrinkItem(NEUTRALIZED_FLASHPINE_JAM_PROPERTIES, true)
     );
+
     public static final FoodProperties FLASHPINE_PIE_SLICE_PROPERTIES = (new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3F).fast().effect(() -> {
         return new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0);
     }, 1.0F).build();
-
     public static final DeferredHolder<Item, Item> FLASHPINE_PIE_SLICE = YafdaNeoForge.ITEMS.register(
             "flashpine_pie_slice",
             () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.foodItem(FLASHPINE_PIE_SLICE_PROPERTIES))
+    );
+
+    public static final DeferredHolder<Block, Block> FLASHPINE_PIE_BLOCK = YafdaNeoForge.BLOCKS.register(
+            "flashpine_pie",
+            () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), FLASHPINE_PIE_SLICE)
+    );
+
+    public static final DeferredHolder<Item, Item> FLASHPINE_PIE = YafdaNeoForge.ITEMS.register(
+            "flashpine_pie",
+            () -> new BlockItem(FLASHPINE_PIE_BLOCK.get(), vectorwing.farmersdelight.common.registry.ModItems.basicItem())
+    );
+
+    public static final FoodProperties FLASHPINE_TEA_PROPERTIES = (new FoodProperties.Builder()).nutrition(0).alwaysEdible().fast().saturationModifier(0.0F).effect(() -> {
+        return new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 0);
+    }, 1.0F).build();
+    public static final DeferredHolder<Item, Item> FLASHPINE_TEA = YafdaNeoForge.ITEMS.register(
+            "flashpine_tea",
+            () -> new ConsumableEffectDrinkItem(FLASHPINE_TEA_PROPERTIES, false)
     );
 
     public static final FoodProperties FLASHPINE_HORNBEER_PROPERTIES = (new FoodProperties.Builder()).fast().alwaysEdible().nutrition(0).saturationModifier(0.0F).effect(() -> {
@@ -124,7 +140,22 @@ public class ArsElementalDelightIntegration {
             () -> new ConsumableEffectDrinkItem(FLASHPINE_HORNBEER_PROPERTIES, false, BuiltInRegistries.ITEM.get(ResourceLocation.parse("arsdelight:chimera_horn")))
     );
 
-    public static void load(){
+    public static final FoodProperties FLASHPINE_FISH_PROPERTIES = (new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3F).fast()
+            .effect(
+                    () -> {
+                        return new MobEffectInstance(MobEffects.NIGHT_VISION, 2400, 0);
+                    }, 1.0F)
+            .effect(() -> {
+                return new MobEffectInstance(ModEffects.COMFORT, 36000, 0);
+            }, 1.0F).build();
+
+    public static final DeferredHolder<Item, Item> FLASHPINE_FISH = YafdaNeoForge.ITEMS.register(
+            "flashpine_fish",
+            () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.bowlFoodItem(FLASHPINE_FISH_PROPERTIES))
+    );
+
+
+    public static void load() {
         Constants.LOG.info("ArsElementalDelight integration loaded");
     }
 
@@ -140,6 +171,7 @@ public class ArsElementalDelightIntegration {
 
         private static final BlockMethod INS = new JellyMethod();
         private static final BlockMethod TE = new BlockEntityBlockMethodImpl<>(FLASHPINE_JELLY_BE, FlashpineJellyBlockEntity.class);
+
         public FlashpineJellyBlock(Properties properties) {
             super(properties, INS, TE);
         }
