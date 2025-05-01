@@ -6,10 +6,6 @@
         },
         {
             "required": false,
-            "id": "arsdelight:source_berry_pie"
-        },
-        {
-            "required": false,
             "id": "arsdelight:mendosteen_pie"
         },
         {
@@ -26,7 +22,7 @@
         },
         {
             "required": false,
-            "id": "yafa:flashpine_pie"
+            "id": "yafda:flashpine_pie"
         }
     ]
 }

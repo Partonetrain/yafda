@@ -21,8 +21,11 @@
   "item.yafda.flashing_bark": "Flashing Bark",
   "item.yafda.flashpine_jelly": "Flashpine Jelly",
   "item.yafda.neutralized_flashpine_jam": "Neutralized Flashpine Jam",
+  "item.yafda.flashpine_pie_slice": "Flashpine Pie Slice",
+  "item.yafda.flashpine_tea": "Flashpine Tea",
 
   "block.yafda.flashpine_jelly": "Flashpine Jelly",
-  "block.yafda.flashpine_crate": "Flashpine Crate"
+  "block.yafda.flashpine_crate": "Flashpine Crate",
+  "block.yafda.flashpine_pie": "Flashpine Pie"
 
 }

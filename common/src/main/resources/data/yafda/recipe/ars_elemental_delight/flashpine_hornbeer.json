@@ -21,7 +21,7 @@
   "type": "farmersdelight:cooking",
   "container": {
     "count": 1,
-    "id": "minecraft:glass_bottle"
+    "id": "arsdelight:chimera_horn"
   },
   "experience": 0.1,
   "ingredients": [
@@ -35,12 +35,15 @@
       "item": "yafda:flashing_bark"
     },
     {
-      "item": "minecraft:sugar"
+      "item": "ars_nouveau:magebloom"
+    },
+    {
+      "item": "ars_nouveau:sourceberry_bush"
     }
   ],
   "recipe_book_tab": "drinks",
   "result": {
     "count": 1,
-    "id": "yafda:neutralized_flashpine_jam"
+    "id": "yafda:flashpine_hornbeer"
   }
 }

@@ -59,7 +59,6 @@ public class ArsElementalDelightIntegration {
             "flashpine_crate",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD))
     );
-
     public static final DeferredHolder<Item, Item> FLASHPINE_CRATE_ITEM = YafdaNeoForge.ITEMS.register(
             "flashpine_crate",
             () -> new BlockItem(FLASHPINE_CRATE_BLOCK.get(), new Item.Properties())
@@ -70,7 +69,6 @@ public class ArsElementalDelightIntegration {
             () -> new FlashpineJellyBlock(Block.Properties.of().instabreak().pushReaction(PushReaction.DESTROY).mapColor(DyeColor.BROWN).sound(SoundType.WOOL)
                     .noOcclusion())
     );
-
     public static final Supplier<BlockEntityType<FlashpineJellyBlockEntity>> FLASHPINE_JELLY_BE = YafdaNeoForge.BLOCK_ENTITY_TYPES.register(
             "flashpine_jelly_block_entity",
             () -> BlockEntityType.Builder.of(
@@ -134,7 +132,6 @@ public class ArsElementalDelightIntegration {
     public static final FoodProperties FLASHPINE_HORNBEER_PROPERTIES = (new FoodProperties.Builder()).fast().alwaysEdible().nutrition(0).saturationModifier(0.0F).effect(() -> {
         return new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 1);
     }, 1.0F).build();
-
     public static final DeferredHolder<Item, Item> FLASHPINE_HORNBEER = YafdaNeoForge.ITEMS.register(
             "flashpine_hornbeer",
             () -> new ConsumableEffectDrinkItem(FLASHPINE_HORNBEER_PROPERTIES, false, BuiltInRegistries.ITEM.get(ResourceLocation.parse("arsdelight:chimera_horn")))
@@ -148,7 +145,6 @@ public class ArsElementalDelightIntegration {
             .effect(() -> {
                 return new MobEffectInstance(ModEffects.COMFORT, 36000, 0);
             }, 1.0F).build();
-
     public static final DeferredHolder<Item, Item> FLASHPINE_FISH = YafdaNeoForge.ITEMS.register(
             "flashpine_fish",
             () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.bowlFoodItem(FLASHPINE_FISH_PROPERTIES))
