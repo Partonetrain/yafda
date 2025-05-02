@@ -2,19 +2,16 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
-      "modid": "brewinandchewin"
+      "modid": "diet"
     }
   ],
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
-      "values": ["brewinandchewin"]
+      "values": ["diet"]
     }
   ],
   "values": [
-    {
-        "required": false,
-        "id": "aether:icestone"
-    }
+
   ]
 }

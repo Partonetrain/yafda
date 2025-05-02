@@ -2,19 +2,19 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
-      "modid": "brewinandchewin"
+      "modid": "arsdelight"
     }
   ],
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
-      "values": ["brewinandchewin"]
+      "values": ["arsdelight"]
     }
   ],
   "values": [
     {
-        "required": false,
-        "id": "aether:icestone"
+      "required": false,
+      "id": "yafda:flashpine_jelly"
     }
   ]
 }

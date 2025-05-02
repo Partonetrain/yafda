@@ -1,0 +1,10 @@
+{
+  "parent": "farmersdelight:block/pie_slice1",
+  "textures": {
+    "bottom": "yafda:block/pie/pie_bottom",
+    "inner": "yafda:block/pie/flashpine_pie_inner",
+    "particle": "yafda:block/pie/flashpine_pie_top",
+    "side": "yafda:block/pie/pie_side",
+    "top": "yafda:block/pie/flashpine_pie_top"
+  }
+}

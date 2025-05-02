@@ -1,0 +1,28 @@
+{
+    "values":[
+        {
+            "required": false,
+            "id": "#arsdelight:jelly"
+        },
+        {
+            "required": false,
+            "id": "arsdelight:mendosteen_pie"
+        },
+        {
+            "required": false,
+            "id": "arsdelight:bastion_pie"
+        },
+        {
+            "required": false,
+            "id": "arsdelight:bombegrante_pie"
+        },
+        {
+            "required": false,
+            "id": "arsdelight:frostaya_pie"
+        },
+        {
+            "required": false,
+            "id": "yafda:flashpine_pie"
+        }
+    ]
+}

@@ -1,21 +1,21 @@
 {
-  "values":[
+  "neoforge:conditions": [
     {
-      "required": false,
-      "id": "yafda:sky_blue_shake"
+      "type": "neoforge:mod_loaded",
+      "modid": "arsdelight"
     },
     {
-      "required": false,
-      "id": "yafda:soulffle"
-    },
+      "type": "neoforge:mod_loaded",
+      "modid": "ars_elemental"
+    }
+  ],
+  "fabric:load_conditions": [
     {
-      "required": false,
-      "id": "yafda:blue_berry_jam"
-    },
-    {
-      "required": false,
-      "id": "yafda:marmalade_sandwich"
-    },
+      "condition": "fabric:all_mods_loaded",
+      "values": ["arsdelight", "ars_elemental"]
+    }
+  ],
+  "values": [
     {
       "required": false,
       "id": "yafda:flashpine_jelly"
