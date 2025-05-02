@@ -22,7 +22,23 @@
     },
     {
       "required": false,
-      "id": "neutralized_flashpine_jam"
+      "id": "yafda:neutralized_flashpine_jam"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_pie_slice"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_tea"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_hornbeer"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_fish"
     }
   ]
 }

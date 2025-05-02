@@ -26,7 +26,8 @@ public class ThirstWasTakenIntegration {
         }
 
         if(Services.PLATFORM.isModLoaded("arsdelight") && Services.PLATFORM.isModLoaded("ars_elemental")){
-            //event.addDrink(ArsElementalDelightIntegration.SKY_BLUE_SHAKE.get(), 6, 8);
+            event.addDrink(ArsElementalDelightIntegration.FLASHPINE_TEA.get(), 8, 13);
+            event.addDrink(ArsElementalDelightIntegration.FLASHPINE_HORNBEER.get(), 8, 13);
         }
     }
 }

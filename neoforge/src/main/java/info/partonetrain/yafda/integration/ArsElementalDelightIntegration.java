@@ -122,7 +122,7 @@ public class ArsElementalDelightIntegration {
     );
 
     public static final FoodProperties FLASHPINE_TEA_PROPERTIES = (new FoodProperties.Builder()).nutrition(0).alwaysEdible().fast().saturationModifier(0.0F).effect(() -> {
-        return new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 0);
+        return new MobEffectInstance(MobEffects.NIGHT_VISION, 1800, 0);
     }, 1.0F).build();
     public static final DeferredHolder<Item, Item> FLASHPINE_TEA = YafdaNeoForge.ITEMS.register(
             "flashpine_tea",
@@ -143,7 +143,7 @@ public class ArsElementalDelightIntegration {
                         return new MobEffectInstance(MobEffects.NIGHT_VISION, 2400, 0);
                     }, 1.0F)
             .effect(() -> {
-                return new MobEffectInstance(ModEffects.COMFORT, 36000, 0);
+                return new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0);
             }, 1.0F).build();
     public static final DeferredHolder<Item, Item> FLASHPINE_FISH = YafdaNeoForge.ITEMS.register(
             "flashpine_fish",
