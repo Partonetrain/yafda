@@ -3,6 +3,14 @@
         {
             "required": false,
             "id": "deep_aether:raw_aerglow_fish"
+        },
+        {
+            "required": false,
+            "id": "yafda:aerglow_slice"
+        },
+        {
+            "required": false,
+            "id": "yafda:cooked_aerglow_slice"
         }
     ]
 }
