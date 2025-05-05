@@ -12,6 +12,21 @@
     }
   ],
   "values": [
-
+    {
+      "required": false,
+      "id": "yafda:aerglow_slice"
+    },
+    {
+      "required": false,
+      "id": "yafda:cooked_aerglow_slice"
+    },
+    {
+      "required": false,
+      "id": "yafda:aerglow_roll"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_fish"
+    }
   ]
 }

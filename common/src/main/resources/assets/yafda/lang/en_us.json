@@ -12,6 +12,9 @@
 
   "item.yafda.skyjade_knife": "Skyjade Knife",
   "item.yafda.stratus_knife": "Stratus Knife",
+  "item.yafda.aerglow_slice": "Aerglow Slice",
+  "item.yafda.cooked_aerglow_slice": "Cooked Aerglow Slice",
+  "item.yafda.aerglow_roll": "Aerglow Roll",
 
   "item.yafda.marmalade_sandwich": "Marmalade Sandwich",
   "item.yafda.blue_berry_jam": "Blue Berry Jam",
@@ -28,6 +31,8 @@
 
   "block.yafda.flashpine_jelly": "Flashpine Jelly",
   "block.yafda.flashpine_crate": "Flashpine Crate",
-  "block.yafda.flashpine_pie": "Flashpine Pie"
+  "block.yafda.flashpine_pie": "Flashpine Pie",
+
+  "item.yafda.steel_knife": "Steel Knife"
 
 }

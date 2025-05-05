@@ -32,6 +32,10 @@
     {
       "required": false,
       "id": "yafda:stratus_knife"
+    },
+    {
+      "required": false,
+      "id": "yafda:steel_knife"
     }
   ]
 }

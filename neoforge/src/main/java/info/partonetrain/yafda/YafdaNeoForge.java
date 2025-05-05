@@ -64,6 +64,9 @@ public class YafdaNeoForge {
         if(Services.PLATFORM.isModLoaded("thirst")){
             ThirstWasTakenIntegration.load();
         }
+        if(Services.PLATFORM.isModLoaded("immersiveengineering")){
+            ImmersiveEngineeringIntegration.load();
+        }
 
 
         if(Services.PLATFORM.isModLoaded("ars_elemental") && Services.PLATFORM.isModLoaded("arsdelight")){

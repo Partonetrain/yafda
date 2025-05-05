@@ -18,11 +18,11 @@
     "item": "deeperdarker:reinforced_echo_shard"
   },
   "base": {
-    "item": "yafda:warden_knife"
+    "item": "farmersdelight:netherite_knife"
   },
   "result": {
     "count": 1,
-    "id": "farmersdelight:netherite_knife"
+    "id": "yafda:warden_knife"
   },
   "template": {
     "item": "deeperdarker:warden_upgrade_smithing_template"

@@ -137,7 +137,7 @@ public class ArsElementalDelightIntegration {
             () -> new ConsumableEffectDrinkItem(FLASHPINE_HORNBEER_PROPERTIES, false, BuiltInRegistries.ITEM.get(ResourceLocation.parse("arsdelight:chimera_horn")))
     );
 
-    public static final FoodProperties FLASHPINE_FISH_PROPERTIES = (new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3F).fast()
+    public static final FoodProperties FLASHPINE_FISH_PROPERTIES = (new FoodProperties.Builder()).nutrition(10).saturationModifier(0.8F)
             .effect(
                     () -> {
                         return new MobEffectInstance(MobEffects.NIGHT_VISION, 2400, 0);

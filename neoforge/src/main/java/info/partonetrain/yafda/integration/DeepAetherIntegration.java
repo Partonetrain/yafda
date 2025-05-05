@@ -35,6 +35,10 @@ public class DeepAetherIntegration {
             "cooked_aerglow_slice",() -> new ConsumableItem(ModItems.foodItem(FoodValues.COOKED_COD_SLICE)
     ));
 
+    public static final DeferredHolder<Item, Item> AERGLOW_ROLL = YafdaNeoForge.ITEMS.register(
+            "aerglow_roll",() -> new ConsumableItem(ModItems.foodItem(FoodValues.COD_ROLL)
+    ));
+
     public static void load(){
         Constants.LOG.info("Deep Aether integration loaded");
     }

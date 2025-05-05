@@ -15,6 +15,22 @@
     {
       "required": false,
       "id": "yafda:flashpine_jelly"
+    },
+    {
+      "required": false,
+      "id": "yafda:neutralized_flashpine_jam"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_pie_slice"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_tea"
+    },
+    {
+      "required": false,
+      "id": "yafda:flashpine_fish"
     }
   ]
 }
