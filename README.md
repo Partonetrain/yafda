@@ -7,11 +7,12 @@ YAFDA adds content for the following mods:
 - Deeper and Darker
 - Thirst was Taken
 - Brewin' and Chewin
+- Immersive Engineering
 
 Additionally, YAFDA adds even more content if the following pairs of mods are installed:
 - Ars Elemental and Ars Nouveau Flavors and Delight
 
-All items, and their dependent mods:
+All items and their dependent mods:
 ![All Items](https://raw.githubusercontent.com/Partonetrain/yafda/refs/heads/1.21.1/all_items.png)
 
 I am open to suggestions about other mods to add support to.
