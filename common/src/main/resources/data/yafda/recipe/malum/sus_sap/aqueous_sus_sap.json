@@ -1,0 +1,41 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "malum"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "yafda:malum_saps"
+    },
+    {
+      "tag": "yafda:sus_sap_ingredients"
+    },
+    {
+      "item": "malum:aqueous_spirit"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "yafda:suspicious_sap",
+    "components": {
+      "minecraft:suspicious_stew_effects": [
+        {
+          "id": "malum:poseidons_grasp",
+          "duration": 80
+        }
+      ]
+    }
+  }
+}

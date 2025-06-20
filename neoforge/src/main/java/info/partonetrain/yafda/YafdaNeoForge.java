@@ -67,6 +67,9 @@ public class YafdaNeoForge {
         if(Services.PLATFORM.isModLoaded("immersiveengineering")){
             ImmersiveEngineeringIntegration.load();
         }
+        if(Services.PLATFORM.isModLoaded("malum")){
+            MalumIntegration.load();
+        }
 
 
         if(Services.PLATFORM.isModLoaded("ars_elemental") && Services.PLATFORM.isModLoaded("arsdelight")){

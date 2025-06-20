@@ -8,6 +8,7 @@ YAFDA adds content for the following mods:
 - Thirst was Taken
 - Brewin' and Chewin
 - Immersive Engineering
+- Malum
 
 Additionally, YAFDA adds even more content if the following pairs of mods are installed:
 - Ars Elemental and Ars Nouveau Flavors and Delight
