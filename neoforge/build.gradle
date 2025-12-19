@@ -110,6 +110,10 @@ dependencies {
     implementation 'maven.modrinth:immersiveengineering:12.2.0-187'
     implementation 'maven.modrinth:malum:1.7.2'
     implementation 'maven.modrinth:lodestonelib:1.7.1'
+
+    implementation 'maven.modrinth:divinerpg:1.10.9.1'
+
+
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

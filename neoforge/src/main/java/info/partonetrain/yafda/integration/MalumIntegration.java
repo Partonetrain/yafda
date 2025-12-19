@@ -1,5 +1,6 @@
 package info.partonetrain.yafda.integration;
 
+import info.partonetrain.yafda.Constants;
 import info.partonetrain.yafda.YafdaNeoForge;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -9,7 +10,6 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import vectorwing.farmersdelight.common.item.DrinkableItem;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class MalumIntegration {
@@ -22,10 +22,8 @@ public class MalumIntegration {
 
     );
 
-
-
     public static void load() {
-        System.out.println("Malum integration loaded");
+        Constants.LOG.info("Malum integration loaded");
     }
 
     public static class SusSapItem extends SuspiciousStewItem {
