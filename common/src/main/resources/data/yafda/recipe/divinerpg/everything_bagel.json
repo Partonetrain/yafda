@@ -1,0 +1,42 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "divinerpg"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "divinerpg"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "divinerpg:donut"
+    },
+    {
+      "item": "yafda:cooked_empowered_meat_slice"
+    },
+    {
+      "item": "divinerpg:white_mushroom"
+    },
+    {
+      "item": "farmersdelight:rice"
+    },
+    {
+      "tag": "c:foods/vegetable"
+    },
+    {
+      "tag": "c:slime_balls"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "yafda:everything_bagel"
+  }
+}

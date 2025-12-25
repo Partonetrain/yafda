@@ -70,6 +70,9 @@ public class YafdaNeoForge {
         if(Services.PLATFORM.isModLoaded("malum")){
             MalumIntegration.load();
         }
+        if(Services.PLATFORM.isModLoaded("divinerpg")){
+            DivineRPGIntegration.load();
+        }
 
 
         if(Services.PLATFORM.isModLoaded("ars_elemental") && Services.PLATFORM.isModLoaded("arsdelight")){
