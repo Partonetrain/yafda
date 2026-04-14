@@ -4,7 +4,8 @@
   "package": "info.partonetrain.yafda.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [],
+  "mixins": [
+  ],
   "client": [
     "ItemRendererMixin"
   ],

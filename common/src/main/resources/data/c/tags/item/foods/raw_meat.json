@@ -3,6 +3,10 @@
         {
             "required": false,
             "id": "deep_aether:raw_quail"
+        },
+        {
+            "required": false,
+            "id": "yafda:empowered_meat_slice"
         }
     ]
 }

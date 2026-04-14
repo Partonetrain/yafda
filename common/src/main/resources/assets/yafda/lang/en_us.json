@@ -35,5 +35,9 @@
 
   "item.yafda.steel_knife": "Steel Knife",
 
-  "item.yafda.suspicious_sap": "Suspicious Sap"
+  "item.yafda.suspicious_sap": "Suspicious Sap",
+
+  "item.yafda.divine_knife": "Divine Knife",
+  "item.yafda.empowered_meat_slice": "Empowered Meat Slice",
+  "item.yafda.cooked_empowered_meat_slice": "Cooked Empowered Meat Slice"
 }
