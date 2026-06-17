@@ -111,9 +111,12 @@ dependencies {
     implementation 'maven.modrinth:malum:1.8.2'
     implementation 'maven.modrinth:lodestonelib:1.8.2'
 
+    implementation 'maven.modrinth:patchouli:1.21.1-93-neoforge'
+
     compileOnly 'maven.modrinth:divinerpg:1.10.9.3' //for some reason can't get into a world in dev env when this mod is loaded
 
-    //implementation files("libs/millenaire.jar")
+    implementation "net.neoforged:testframework:${neoforge_version}" //required for millenaire
+    implementation files("../libs/millenaire-9.0.0-dev-preview.9.jar")
 
 
 }

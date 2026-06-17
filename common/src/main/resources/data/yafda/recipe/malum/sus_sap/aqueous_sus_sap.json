@@ -32,7 +32,7 @@
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "id": "malum:poseidons_grasp",
+          "id": "minecraft:water_breathing",
           "duration": 80
         }
       ]

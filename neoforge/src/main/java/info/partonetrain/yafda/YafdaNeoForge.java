@@ -1,26 +1,21 @@
 package info.partonetrain.yafda;
 
-import dev.xkmc.arsdelight.content.jelly.JellyBlockEntityRenderer;
 import info.partonetrain.yafda.integration.*;
 import info.partonetrain.yafda.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 @Mod(Constants.MOD_ID)
 public class YafdaNeoForge {
@@ -73,7 +68,9 @@ public class YafdaNeoForge {
         if(Services.PLATFORM.isModLoaded("divinerpg")){
             DivineRPGIntegration.load();
         }
-
+        if(Services.PLATFORM.isModLoaded("millenaire")){
+            MillenaireIntegration.load();
+        }
 
         if(Services.PLATFORM.isModLoaded("ars_elemental") && Services.PLATFORM.isModLoaded("arsdelight")){
             ArsElementalDelightIntegration.load();
@@ -89,7 +86,7 @@ public class YafdaNeoForge {
     }
 
     public void buildCreativeTabContants(BuildCreativeModeTabContentsEvent event) {
-        Constants.LOG.info(event.getTabKey().toString());
+        //Constants.LOG.info(event.getTabKey().toString());
         if (event.getTab() == ModCreativeTabs.TAB_FARMERS_DELIGHT.get()) {
             for (DeferredHolder<Item, ? extends Item> i : YafdaNeoForge.ITEMS.getEntries()) {
                 event.accept(i.get(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

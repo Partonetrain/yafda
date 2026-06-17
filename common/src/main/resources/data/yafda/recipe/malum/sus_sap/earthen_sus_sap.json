@@ -32,7 +32,7 @@
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "id": "malum:gaias_bulwark",
+          "id": "malum:resistance",
           "duration": 80
         }
       ]

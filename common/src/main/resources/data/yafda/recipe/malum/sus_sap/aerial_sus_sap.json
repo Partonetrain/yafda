@@ -32,7 +32,7 @@
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "id": "malum:zephyrs_courage",
+          "id": "minecraft:jump_boost",
           "duration": 80
         }
       ]
