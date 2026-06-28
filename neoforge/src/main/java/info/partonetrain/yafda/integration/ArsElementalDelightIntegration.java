@@ -53,29 +53,29 @@ public class ArsElementalDelightIntegration {
     public static final DeferredHolder<Item, Item> FLASHING_BARK = YafdaNeoForge.ITEMS.register(
             "flashing_bark",
             () -> new FuelItem(new Item.Properties(), 200)
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final DeferredHolder<Block, Block> FLASHPINE_CRATE_BLOCK = YafdaNeoForge.BLOCKS.register(
             "flashpine_crate",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD))
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
     public static final DeferredHolder<Item, Item> FLASHPINE_CRATE_ITEM = YafdaNeoForge.ITEMS.register(
             "flashpine_crate",
             () -> new BlockItem(FLASHPINE_CRATE_BLOCK.get(), new Item.Properties())
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final DeferredHolder<Block, Block> FLASHPINE_JELLY_BLOCK = YafdaNeoForge.BLOCKS.register(
             "flashpine_jelly",
             () -> new FlashpineJellyBlock(Block.Properties.of().instabreak().pushReaction(PushReaction.DESTROY).mapColor(DyeColor.BROWN).sound(SoundType.WOOL)
                     .noOcclusion())
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
     public static final Supplier<BlockEntityType<FlashpineJellyBlockEntity>> FLASHPINE_JELLY_BE = YafdaNeoForge.BLOCK_ENTITY_TYPES.register(
             "flashpine_jelly_block_entity",
             () -> BlockEntityType.Builder.of(
                     FlashpineJellyBlockEntity::new,
                     FLASHPINE_JELLY_BLOCK.get()
             ).build(null)
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final DeferredHolder<Item, Item> FLASHPINE_JELLY = YafdaNeoForge.ITEMS.register(
             "flashpine_jelly",
@@ -101,7 +101,7 @@ public class ArsElementalDelightIntegration {
     public static final DeferredHolder<Item, Item> NEUTRALIZED_FLASHPINE_JAM = YafdaNeoForge.ITEMS.register(
             "neutralized_flashpine_jam",
             () -> new ConsumableEffectDrinkItem(NEUTRALIZED_FLASHPINE_JAM_PROPERTIES, true)
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final FoodProperties FLASHPINE_PIE_SLICE_PROPERTIES = (new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3F).fast().effect(() -> {
         return new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0);
@@ -109,17 +109,17 @@ public class ArsElementalDelightIntegration {
     public static final DeferredHolder<Item, Item> FLASHPINE_PIE_SLICE = YafdaNeoForge.ITEMS.register(
             "flashpine_pie_slice",
             () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.foodItem(FLASHPINE_PIE_SLICE_PROPERTIES))
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final DeferredHolder<Block, Block> FLASHPINE_PIE_BLOCK = YafdaNeoForge.BLOCKS.register(
             "flashpine_pie",
             () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), FLASHPINE_PIE_SLICE)
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final DeferredHolder<Item, Item> FLASHPINE_PIE = YafdaNeoForge.ITEMS.register(
             "flashpine_pie",
             () -> new BlockItem(FLASHPINE_PIE_BLOCK.get(), vectorwing.farmersdelight.common.registry.ModItems.basicItem())
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final FoodProperties FLASHPINE_TEA_PROPERTIES = (new FoodProperties.Builder()).nutrition(0).alwaysEdible().fast().saturationModifier(0.0F).effect(() -> {
         return new MobEffectInstance(MobEffects.NIGHT_VISION, 1800, 0);
@@ -127,7 +127,7 @@ public class ArsElementalDelightIntegration {
     public static final DeferredHolder<Item, Item> FLASHPINE_TEA = YafdaNeoForge.ITEMS.register(
             "flashpine_tea",
             () -> new ConsumableEffectDrinkItem(FLASHPINE_TEA_PROPERTIES, false)
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final FoodProperties FLASHPINE_HORNBEER_PROPERTIES = (new FoodProperties.Builder()).fast().alwaysEdible().nutrition(0).saturationModifier(0.0F).effect(() -> {
         return new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 1);
@@ -135,7 +135,7 @@ public class ArsElementalDelightIntegration {
     public static final DeferredHolder<Item, Item> FLASHPINE_HORNBEER = YafdaNeoForge.ITEMS.register(
             "flashpine_hornbeer",
             () -> new ConsumableEffectDrinkItem(FLASHPINE_HORNBEER_PROPERTIES, false, BuiltInRegistries.ITEM.get(ResourceLocation.parse("arsdelight:chimera_horn")))
-    );
+    ); //DEPRECATED IN FAVOR OF ARSDELIGHT VERSION
 
     public static final FoodProperties FLASHPINE_FISH_PROPERTIES = (new FoodProperties.Builder()).nutrition(10).saturationModifier(0.8F)
             .effect(
@@ -148,11 +148,11 @@ public class ArsElementalDelightIntegration {
     public static final DeferredHolder<Item, Item> FLASHPINE_FISH = YafdaNeoForge.ITEMS.register(
             "flashpine_fish",
             () -> new ConsumableEffectItem(vectorwing.farmersdelight.common.registry.ModItems.bowlFoodItem(FLASHPINE_FISH_PROPERTIES))
-    );
+    ); //not deprecated
 
 
     public static void load() {
-        Constants.LOG.info("ArsElementalDelight integration loaded");
+        Constants.LOG.info("ArsElementalDelight integration loaded (for arsdelight <=2.2.1");
     }
 
     @SerialClass //l2serial

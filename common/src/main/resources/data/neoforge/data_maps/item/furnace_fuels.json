@@ -1,17 +1,13 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "arsdelight"
-    },
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "ars_elemental"
-    }
-  ],
   "values": {
     "yafda:flashing_bark": {
-      "burn_time": 20
+      "burn_time": 20,
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:item_exists",
+          "item": "yafda:flashing_bark"
+        }
+      ]
     }
   }
 }

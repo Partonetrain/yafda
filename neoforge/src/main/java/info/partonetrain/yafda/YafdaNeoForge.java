@@ -9,15 +9,22 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import org.apache.maven.artifact.versioning.ArtifactVersion;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 
 @Mod(Constants.MOD_ID)
+@EventBusSubscriber(modid = Constants.MOD_ID)
 public class YafdaNeoForge {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(
@@ -72,8 +79,18 @@ public class YafdaNeoForge {
             MillenaireIntegration.load();
         }
 
-        if(Services.PLATFORM.isModLoaded("ars_elemental") && Services.PLATFORM.isModLoaded("arsdelight")){
-            ArsElementalDelightIntegration.load();
+        if(Services.PLATFORM.isModLoaded("ars_elemental")){
+            if(ModList.get().getModContainerById("arsdelight").isPresent()){
+                ArtifactVersion arsdelightVersion = ModList.get().getModContainerById("arsdelight").get().getModInfo().getVersion();
+                final ArtifactVersion MAX_ARS_DELIGHT_VERSION_FOR_ORIGINAL_COMPAT = new DefaultArtifactVersion("2.2.1");
+                if(arsdelightVersion.compareTo(MAX_ARS_DELIGHT_VERSION_FOR_ORIGINAL_COMPAT) > 0){ //if the version is greater than 2.2.1
+                    UpdatedArsDelightElementalIntegration.load();
+                }
+                else{
+                    ArsElementalDelightIntegration.load();
+                }
+            }
+
         }
 
         eventBus.addListener(this::buildCreativeTabContants);
@@ -91,6 +108,14 @@ public class YafdaNeoForge {
             for (DeferredHolder<Item, ? extends Item> i : YafdaNeoForge.ITEMS.getEntries()) {
                 event.accept(i.get(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onServerStarted(ServerStartedEvent event) {
+        if(Services.PLATFORM.isModLoaded("millenaire")){
+            Constants.LOG.info("Deploying to millenaire-custom folder.");
+            MillenaireIntegration.deployCustomFolder(event);
         }
     }
 }

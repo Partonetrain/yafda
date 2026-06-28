@@ -32,7 +32,7 @@
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "id": "malum:resistance",
+          "id": "minecraft:resistance",
           "duration": 80
         }
       ]

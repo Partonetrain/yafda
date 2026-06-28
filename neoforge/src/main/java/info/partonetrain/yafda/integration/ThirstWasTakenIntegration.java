@@ -4,7 +4,10 @@ import dev.ghen.thirst.foundation.common.event.RegisterThirstValueEvent;
 import info.partonetrain.yafda.Constants;
 import info.partonetrain.yafda.platform.Services;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.NeoForge;
+import org.apache.maven.artifact.versioning.ArtifactVersion;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 
 public class ThirstWasTakenIntegration {
 
@@ -26,8 +29,12 @@ public class ThirstWasTakenIntegration {
         }
 
         if(Services.PLATFORM.isModLoaded("arsdelight") && Services.PLATFORM.isModLoaded("ars_elemental")){
-            event.addDrink(ArsElementalDelightIntegration.FLASHPINE_TEA.get(), 8, 13);
-            event.addDrink(ArsElementalDelightIntegration.FLASHPINE_HORNBEER.get(), 8, 13);
+            ArtifactVersion arsdelightVersion = ModList.get().getModContainerById("arsdelight").get().getModInfo().getVersion();
+            final ArtifactVersion MAX_ARS_DELIGHT_VERSION_FOR_ORIGINAL_COMPAT = new DefaultArtifactVersion("2.2.1");
+            if(!(arsdelightVersion.compareTo(MAX_ARS_DELIGHT_VERSION_FOR_ORIGINAL_COMPAT) > 0)) {
+                event.addDrink(ArsElementalDelightIntegration.FLASHPINE_TEA.get(), 8, 13);
+                event.addDrink(ArsElementalDelightIntegration.FLASHPINE_HORNBEER.get(), 8, 13);
+            }
         }
     }
 }
