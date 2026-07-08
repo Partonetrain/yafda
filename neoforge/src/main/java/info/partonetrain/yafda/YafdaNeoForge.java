@@ -114,8 +114,7 @@ public class YafdaNeoForge {
     @SubscribeEvent
     public static void onServerStarted(ServerStartedEvent event) {
         if(Services.PLATFORM.isModLoaded("millenaire")){
-            Constants.LOG.info("Deploying to millenaire-custom folder.");
-            MillenaireIntegration.deployCustomFolder(event);
+            MillenaireIntegration.deployCustomFolder(event.getServer());
         }
     }
 }
