@@ -52,14 +52,6 @@
     {
       "required": false,
       "id": "yafda:byzantine_knife"
-    },
-    {
-      "required": false,
-      "id": "yafda:japanese_knife"
-    },
-    {
-      "required": false,
-      "id": "yafda:seljuk_knife"
     }
   ]
 }

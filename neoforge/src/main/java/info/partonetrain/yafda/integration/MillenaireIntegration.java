@@ -12,7 +12,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.SimpleTier;
-import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforgespi.locating.IModFile;
 import org.apache.commons.io.FileUtils;
@@ -32,16 +31,26 @@ public class MillenaireIntegration {
     static final int INTEGRATION_VERSION = 0;
 
     static final Tier normanKnifeTier = new SimpleTier(BlockTags.INCORRECT_FOR_IRON_TOOL, 1561, 10.0F, 4.0F, 10, () -> Ingredient.of(new ItemLike[]{Items.IRON_INGOT})); //NormanMaterials.NORMAN_TOOL;
-    //final Tier indianKnifeTier = Tiers.WOOD;
+    //static final Tier indianKnifeTier = Tiers.WOOD;
     static final Tier mayanKnifeTier = new SimpleTier(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1561, 6.0F, 2.0F, 25, () -> Ingredient.of(new ItemLike[]{Items.DIAMOND})); //MayanMaterials.OBSIDIAN_TOOL;
     static final Tier byzantineKnifeTier = new SimpleTier(BlockTags.INCORRECT_FOR_IRON_TOOL, 250, 6.0F, 2.0F, 14, () -> Ingredient.of(new ItemLike[]{Items.IRON_INGOT})); //ByzantineMaterials.BYZANTINE_TOOL;
     //static final Tier japaneseKnifetier = new SimpleTier(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1561, 6.0F, 2.0F, 25, () -> Ingredient.of(new ItemLike[]{Items.DIAMOND})); //JapaneseMaterials.JAPANESE_TOOL;
     //static final Tier seljukKnifetier = new SimpleTier(BlockTags.INCORRECT_FOR_IRON_TOOL, 250, 6.0F, 2.0F, 14, () -> Ingredient.of(new ItemLike[]{Items.IRON_INGOT})); SeljukMaterials.SELJUK_TOOL;
-    //final Tier inuitKinfeTier = Tiers.WOOD;
+    //static final Tier inuitKinfeTier = Tiers.WOOD;
 
     public static final DeferredHolder<Item, Item> NORMAN_KNIFE = YafdaNeoForge.ITEMS.register(
             "norman_knife",
             () -> new YafdaKnifeItem(normanKnifeTier)
+    );
+
+    public static final DeferredHolder<Item, Item> MAYAN_KNIFE = YafdaNeoForge.ITEMS.register(
+            "mayan_knife",
+            () -> new YafdaKnifeItem(mayanKnifeTier)
+    );
+
+    public static final DeferredHolder<Item, Item> BYZANTINE_KNIFE = YafdaNeoForge.ITEMS.register(
+            "byzantine_knife",
+            () -> new YafdaKnifeItem(byzantineKnifeTier)
     );
 
     public static void load() {

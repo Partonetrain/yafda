@@ -39,5 +39,9 @@
 
   "item.yafda.divine_knife": "Divine Knife",
   "item.yafda.empowered_meat_slice": "Empowered Meat Slice",
-  "item.yafda.cooked_empowered_meat_slice": "Cooked Empowered Meat Slice"
+  "item.yafda.cooked_empowered_meat_slice": "Cooked Empowered Meat Slice",
+
+  "item.yafda.norman_knife": "Norman Knife",
+  "item.yafda.mayan_knife": "Mayan Knife",
+  "item.yafda.byzantine_knife": "Byzantine Knife"
 }

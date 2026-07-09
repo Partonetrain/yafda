@@ -1,0 +1,13 @@
+{
+  "goods": [
+    {
+      "id": "yafda_mayan_knife",
+      "item": "yafda:mayan_knife",
+      "selling_price": 640,
+      "buying_price": 576,
+      "reserved_quantity": 1,
+      "target_quantity": 1,
+      "category": "tools"
+    }
+  ]
+}
