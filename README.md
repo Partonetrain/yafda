@@ -9,6 +9,7 @@ YAFDA adds content for the following mods:
 - Brewin' and Chewin
 - Immersive Engineering
 - Malum
+- Millenaire 9 (WIP, waiting on update from Millenaire to allow shops to be mergeable)
 
 Additionally, YAFDA adds even more content if the following pairs of mods are installed:
 - Ars Elemental and Ars Nouveau Flavors and Delight
@@ -17,7 +18,7 @@ All items and their dependent mods:
 ![All Items](https://raw.githubusercontent.com/Partonetrain/yafda/refs/heads/1.21.1/all_items.png)
 
 I am open to suggestions about other mods to add support to.
-For cupboards and wood-related cutting recipes, I highly recommend EveryCompat.
+For cupboards and wood-related cutting recipes, I highly recommend EveryCompat (Wood Good).
 
 ### Fabric?
 The development repository supports Fabric, but unfortunately due to the large amount of cross-mod support and the lack of common APIs for said mods,

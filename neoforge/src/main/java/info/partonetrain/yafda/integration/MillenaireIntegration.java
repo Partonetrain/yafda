@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 
 public class MillenaireIntegration {
 
-    static final int INTEGRATION_VERSION = 0;
+    static final int INTEGRATION_VERSION = 1; //up this every time a change happens
 
     static final Tier normanKnifeTier = new SimpleTier(BlockTags.INCORRECT_FOR_IRON_TOOL, 1561, 10.0F, 4.0F, 10, () -> Ingredient.of(new ItemLike[]{Items.IRON_INGOT})); //NormanMaterials.NORMAN_TOOL;
     //static final Tier indianKnifeTier = Tiers.WOOD;
@@ -65,7 +65,7 @@ public class MillenaireIntegration {
         Path versionFile = yafdaDir.resolve("version.txt");
 
         //first check if it's already there and up to date.
-        int currentlyDeployedVersion = -1;
+        int currentlyDeployedVersion = 0;
         if(Files.exists(versionFile)) {
             try (Stream<@NotNull String> lines = Files.lines(versionFile)) {
                 Optional<String> firstLine = lines.findFirst();
@@ -73,13 +73,17 @@ public class MillenaireIntegration {
                     currentlyDeployedVersion = Integer.parseInt(firstLine.get());
                 }
                 else{
-                    Constants.LOG.error("Found /millenaire-custom/" + Constants.MOD_ID + "/version.txt, but it was empty! Assuming version -1");
+                    Constants.LOG.error("Found /millenaire-custom/" + Constants.MOD_ID + "/version.txt, but it was empty! Assuming version " + currentlyDeployedVersion);
                 }
             } catch (IOException e) {
                 Constants.LOG.error("Error while attempting to read /millenaire-custom/" + Constants.MOD_ID + "/version.txt: " + e);
             }
         }
 
+        if(currentlyDeployedVersion == -1){
+            Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is set to -1, ignoring");
+            return;
+        }
         if(currentlyDeployedVersion == INTEGRATION_VERSION){
             Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is up-to-date.");
             return;
@@ -126,7 +130,7 @@ public class MillenaireIntegration {
         try {
             Files.writeString(path,
                     INTEGRATION_VERSION + System.lineSeparator() +
-                    "#This file is used by " + Constants.MOD_ID +  " to determine integration version, please do not edit it." + System.lineSeparator()
+                    "#This file is used by " + Constants.MOD_ID +  " to determine integration version. Please do not edit it, unless want to prevent deployment (set it to -1)." + System.lineSeparator()
             );
         } catch (IOException e) {
             Constants.LOG.error("Error while attempting to write version.txt to /millenaire-custom/" + Constants.MOD_ID + "/: " + e);

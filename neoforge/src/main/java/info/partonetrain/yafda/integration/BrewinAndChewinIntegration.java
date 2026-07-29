@@ -7,6 +7,7 @@ import info.partonetrain.yafda.item.ConsumableEffectItem;
 import info.partonetrain.yafda.platform.Services;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -68,6 +69,12 @@ public class BrewinAndChewinIntegration {
                             )
                 ));
         }
+    }
+
+    //simulates drinking bnc beer
+    public static void tipsyStacking(LivingEntity consumer){
+        BoozeItem dummyBooze = (BoozeItem) BnCItems.BEER;
+        dummyBooze.affectConsumer(consumer, 2400, 0);
     }
 
     public static void load(){

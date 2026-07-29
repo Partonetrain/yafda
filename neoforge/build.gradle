@@ -116,7 +116,7 @@ dependencies {
     compileOnly 'maven.modrinth:divinerpg:1.10.9.3' //for some reason can't get into a world in dev env when this mod is loaded
 
     implementation "net.neoforged:testframework:${neoforge_version}" //required for millenaire
-    implementation files("../libs/millenaire-9.0.0-dev-preview.9.jar")
+    implementation files("../libs/millenaire-9.0.0-beta.2.jar")
 
 
 }

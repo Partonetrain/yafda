@@ -114,7 +114,8 @@ public class YafdaNeoForge {
     @SubscribeEvent
     public static void onServerStarted(ServerStartedEvent event) {
         if(Services.PLATFORM.isModLoaded("millenaire")){
-            MillenaireIntegration.deployCustomFolder(event.getServer());
+            //MillenaireIntegration.deployCustomFolder(event.getServer());
+            //DISABLED for now as shops in Millenaire are not mergeable.
         }
     }
 }
