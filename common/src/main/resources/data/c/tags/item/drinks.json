@@ -1,0 +1,12 @@
+{
+  "values":[
+    {
+      "required": false,
+      "id": "yafda:sky_blue_shake"
+    },
+    {
+      "required": false,
+      "id": "yafda:cherry_plum_shake"
+    }
+  ]
+}

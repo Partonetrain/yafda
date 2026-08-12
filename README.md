@@ -9,10 +9,12 @@ YAFDA adds content for the following mods:
 - Brewin' and Chewin
 - Immersive Engineering
 - Malum
-- Millenaire 9 (WIP, waiting on update from Millenaire to allow shops to be mergeable)
+- Millenaire 9
 
 Additionally, YAFDA adds even more content if the following pairs of mods are installed:
 - Ars Elemental and Ars Nouveau Flavors and Delight
+
+For Millenaire, YAFDA deploys to the millenaire_custom folder. You will have to manually copy over the shops from the millenaire folder that match the names of the ones in the .shopsToMerge folders and add the entries. I know this is cumbersome, but it seems Millenaire's shops are not mergeable by design.
 
 All items and their dependent mods:
 ![All Items](https://raw.githubusercontent.com/Partonetrain/yafda/refs/heads/1.21.1/all_items.png)

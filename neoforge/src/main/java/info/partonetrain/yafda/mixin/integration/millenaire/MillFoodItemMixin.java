@@ -78,7 +78,7 @@ public class MillFoodItemMixin extends Item {
         this.extraEffects = extraEffects;
     }
 
-    //right after nauseau effect is added - drunkSecond check already done
+    //right after nausea effect is added - drunkSecond check already done
     @Inject(method = "finishUsingItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;)Lnet/minecraft/world/item/ItemStack;", at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;addEffect(Lnet/minecraft/world/effect/MobEffectInstance;)Z", ordinal = 1))
     public void yafda$finishUsingItem(ItemStack stack, Level level, LivingEntity entity, CallbackInfoReturnable<ItemStack> cir){
         if(Services.PLATFORM.isModLoaded("brewinandchewin")){

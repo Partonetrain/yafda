@@ -78,6 +78,9 @@ public class YafdaNeoForge {
         if(Services.PLATFORM.isModLoaded("millenaire")){
             MillenaireIntegration.load();
         }
+        if(Services.PLATFORM.isModLoaded("environmental")){
+            EnvironmentalIntegration.load();
+        }
 
         if(Services.PLATFORM.isModLoaded("ars_elemental")){
             if(ModList.get().getModContainerById("arsdelight").isPresent()){
@@ -114,8 +117,7 @@ public class YafdaNeoForge {
     @SubscribeEvent
     public static void onServerStarted(ServerStartedEvent event) {
         if(Services.PLATFORM.isModLoaded("millenaire")){
-            //MillenaireIntegration.deployCustomFolder(event.getServer());
-            //DISABLED for now as shops in Millenaire are not mergeable.
+            MillenaireIntegration.deployCustomFolder(event.getServer());
         }
     }
 }

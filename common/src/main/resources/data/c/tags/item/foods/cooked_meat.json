@@ -2,11 +2,19 @@
     "values":[
         {
             "required": false,
-            "id": "deep_aether:cooked_quail"
+            "id": "yafda:empowered_meat_slice"
+        },
+        {
+            "required": false,
+            "id": "yafda:raw_venison_slice"
         },
         {
             "required": false,
             "id": "yafda:cooked_empowered_meat_slice"
+        },
+        {
+            "required": false,
+            "id": "yafda:cooked_venison_slice"
         }
     ]
 }

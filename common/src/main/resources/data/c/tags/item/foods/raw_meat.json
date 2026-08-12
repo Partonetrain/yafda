@@ -7,6 +7,10 @@
         {
             "required": false,
             "id": "yafda:empowered_meat_slice"
+        },
+        {
+            "required": false,
+            "id": "yafda:raw_venison_slice"
         }
     ]
 }

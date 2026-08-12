@@ -36,5 +36,9 @@ public class ThirstWasTakenIntegration {
                 event.addDrink(ArsElementalDelightIntegration.FLASHPINE_HORNBEER.get(), 8, 13);
             }
         }
+
+        if(Services.PLATFORM.isModLoaded("environmental")){
+            event.addDrink(EnvironmentalIntegration.CHERRY_PLUM_SHAKE.get(), 6, 8);
+        }
     }
 }

@@ -2,14 +2,14 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
-      "modid": "aether"
+      "modid": "environmental"
     }
   ],
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
-        "aether"
+        "environmental"
       ]
     }
   ],
@@ -21,10 +21,10 @@
   },
   "ingredients": [
     {
-      "item": "aether:blue_berry"
+      "item": "environmental:cherries"
     },
     {
-      "item": "aether:blue_berry"
+      "item": "environmental:plum"
     },
     {
       "item": "minecraft:sugar"
@@ -36,6 +36,6 @@
   "recipe_book_tab": "drinks",
   "result": {
     "count": 1,
-    "id": "yafda:sky_blue_shake"
+    "id": "yafda:cherry_plum_shake"
   }
 }
