@@ -10,11 +10,10 @@ YAFDA adds content for the following mods:
 - Immersive Engineering
 - Malum
 - Millenaire 9
+- Environmental
+- Ars Elemental & Ars Nouveau Flavors and Delight (newer versions of Flavors and Delight have Flashpine foods included, so YAFDA will not register its own)
 
-Additionally, YAFDA adds even more content if the following pairs of mods are installed:
-- Ars Elemental and Ars Nouveau Flavors and Delight
-
-For Millenaire, YAFDA deploys to the millenaire_custom folder. You will have to manually copy over the shops from the millenaire folder that match the names of the ones in the .shopsToMerge folders and add the entries. I know this is cumbersome, but it seems Millenaire's shops are not mergeable by design. This may change in the future, however.
+For Millenaire, YAFDA deploys what files it can to the millenaire_custom folder. However, you will have to manually copy over the shop and villager type JSON definitions from the millenaire folder that match the names of the ones in the .shopsToMerge and .villagersToMerge folders and add the entries. I know this is cumbersome, but it seems Millenaire's shops and villager types are not mergeable by design.
 
 All items and their dependent mods:
 ![All Items](https://raw.githubusercontent.com/Partonetrain/yafda/refs/heads/1.21.1/all_items.png)

@@ -119,7 +119,7 @@ dependencies {
     implementation 'maven.modrinth:environmental:5.0.1'
 
     implementation "net.neoforged:testframework:${neoforge_version}" //required for millenaire
-    implementation files("../libs/millenaire-9.0.0-beta.2.jar")
+    implementation files("../libs/millenaire-9.0.1.jar")
 
 
 }

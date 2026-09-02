@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 
 public class MillenaireIntegration {
 
-    static final int INTEGRATION_VERSION = 1; //up this every time a change happens
+    static final int INTEGRATION_VERSION = 2; //up this every time a change happens
 
     static final Tier normanKnifeTier = new SimpleTier(BlockTags.INCORRECT_FOR_IRON_TOOL, 1561, 10.0F, 4.0F, 10, () -> Ingredient.of(new ItemLike[]{Items.IRON_INGOT})); //NormanMaterials.NORMAN_TOOL;
     //static final Tier indianKnifeTier = Tiers.WOOD;
