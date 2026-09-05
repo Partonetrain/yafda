@@ -13,7 +13,7 @@
       ]
     }
   ],
-  "type": "minecraft:crafting_shapeless",
+  "type": "yafda:shapeless_no_remainder",
   "category": "misc",
   "ingredients": [
     {

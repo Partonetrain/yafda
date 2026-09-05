@@ -48,5 +48,11 @@
   "item.yafda.cherry_plum_shake":  "Cherry Plum Shake",
   "tooltip.farmersdelight.cherry_plum_shake": "Clears 1 Harmful Effect",
   "item.yafda.raw_venison_slice":  "Raw Venison Slice",
-  "item.yafda.cooked_venison_slice":  "Cooked Venison Slice"
+  "item.yafda.cooked_venison_slice":  "Cooked Venison Slice",
+
+  "goal.millenaire.craft_ironknife": "Crafting Iron Knife",
+  "goal.millenaire.craft_normanknife": "Crafting Norman Knife",
+  "goal.millenaire.craft_byzantineknife": "Crafting Byzantine Knife",
+  "goal.millenaire.craft_flintknife": "Crafting Flint Knife",
+  "goal.millenaire.craft_mayanknife": "Crafting Mayan Knife"
 }

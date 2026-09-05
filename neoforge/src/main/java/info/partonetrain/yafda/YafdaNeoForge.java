@@ -2,9 +2,15 @@ package info.partonetrain.yafda;
 
 import info.partonetrain.yafda.integration.*;
 import info.partonetrain.yafda.platform.Services;
+import info.partonetrain.yafda.recipe.ShapelessNoRemainderRecipe;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
@@ -22,6 +28,8 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.apache.maven.artifact.versioning.ArtifactVersion;
 import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
+
+import java.util.function.Supplier;
 
 @Mod(Constants.MOD_ID)
 @EventBusSubscriber(modid = Constants.MOD_ID)
@@ -48,6 +56,24 @@ public class YafdaNeoForge {
             NeoForgeRegistries.Keys.FLUID_TYPES,
             Constants.MOD_ID
     );
+
+    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(
+            Registries.RECIPE_TYPE,
+            Constants.MOD_ID
+    );
+    public static final Supplier<RecipeType<ShapelessNoRemainderRecipe>> SHAPELESS_NO_REMAINDER =
+        RECIPE_TYPES.register(
+                "shapeless_no_remainder",
+                //note from neoforge docs --> We need the qualifying generic here due to generics being generics.
+                () -> RecipeType.<ShapelessNoRemainderRecipe>simple(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "shapeless_no_remainder")
+        )
+    );
+
+    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(
+            Registries.RECIPE_SERIALIZER,
+            Constants.MOD_ID
+    );
+    public static final Supplier<RecipeSerializer<?>> SHAPELESS_NO_REMAINDER_SERIALIZER = RECIPE_SERIALIZERS.register("shapeless_no_remainder", ShapelessRecipe.Serializer::new);
 
     public YafdaNeoForge(IEventBus eventBus) {
 
@@ -102,6 +128,9 @@ public class YafdaNeoForge {
         BLOCK_ENTITY_TYPES.register(eventBus);
         FLUID_TYPES.register(eventBus);
         FLUIDS.register(eventBus);
+        RECIPE_TYPES.register(eventBus);
+        RECIPE_SERIALIZERS.register(eventBus);
+        //Constants.LOG.info(SHAPELESS_NO_REMAINDER.get().toString());
         CommonClass.init();
     }
 
