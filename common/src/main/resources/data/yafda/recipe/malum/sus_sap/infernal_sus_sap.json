@@ -13,7 +13,7 @@
       ]
     }
   ],
-  "type": "yafda:shapeless_no_remainder",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
     {
@@ -24,6 +24,9 @@
     },
     {
       "item": "malum:infernal_spirit"
+    },
+    {
+      "item": "minecraft:glass_bottle"
     }
   ],
   "result": {
