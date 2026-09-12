@@ -3,6 +3,9 @@ package info.partonetrain.yafda.integration;
 import info.partonetrain.yafda.Constants;
 import info.partonetrain.yafda.YafdaNeoForge;
 import info.partonetrain.yafda.item.YafdaKnifeItem;
+import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
@@ -10,19 +13,22 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.SimpleTier;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforgespi.locating.IModFile;
 import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.NotNull;
+import org.millenaire.Millenaire;
 import org.millenaire.content.ContentDirectoryManager;
-import org.millenaire.item.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -57,7 +63,7 @@ public class MillenaireIntegration {
         Constants.LOG.info("Millenaire integration loaded");
     }
 
-    public static void deployCustomFolder(MinecraftServer server){
+    public static void deployCustomFolder(MinecraftServer server) {
         Constants.LOG.info("Checking /millenaire-custom/ deployed content...");
         ContentDirectoryManager.init(server);
         Path customDir = ContentDirectoryManager.getCustomDir();
@@ -66,13 +72,12 @@ public class MillenaireIntegration {
 
         //first check if it's already there and up to date.
         int currentlyDeployedVersion = 0;
-        if(Files.exists(versionFile)) {
+        if (Files.exists(versionFile)) {
             try (Stream<@NotNull String> lines = Files.lines(versionFile)) {
                 Optional<String> firstLine = lines.findFirst();
-                if(firstLine.isPresent()){
+                if (firstLine.isPresent()) {
                     currentlyDeployedVersion = Integer.parseInt(firstLine.get());
-                }
-                else{
+                } else {
                     Constants.LOG.error("Found /millenaire-custom/" + Constants.MOD_ID + "/version.txt, but it was empty! Assuming version " + currentlyDeployedVersion);
                 }
             } catch (IOException e) {
@@ -80,31 +85,29 @@ public class MillenaireIntegration {
             }
         }
 
-        if(currentlyDeployedVersion == -1){
+        if (currentlyDeployedVersion == -1) {
             Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is set to -1, ignoring");
             return;
         }
-        if(currentlyDeployedVersion == INTEGRATION_VERSION){
+        if (currentlyDeployedVersion == INTEGRATION_VERSION) {
             Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is up-to-date.");
             return;
-        }
-        else if(currentlyDeployedVersion < INTEGRATION_VERSION){
+        } else if (currentlyDeployedVersion < INTEGRATION_VERSION) {
             //now actually deploy.
             IModFile thisJar = ModList.get().getModFileById(Constants.MOD_ID).getFile();
             Path customToDeploy = thisJar.findResource("deployable", "millenaire-custom");
-            try{
+            try {
                 Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is out-of-date. Deleting old data.");
                 nukeOldDeployed(yafdaDir);
                 copyFromTo(customToDeploy, customDir);
                 writeVersionFile(versionFile);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 Constants.LOG.error("Error while attempting to deploy to /millenaire-custom/: " + e);
             }
         }
     }
 
-    private static void nukeOldDeployed(Path path) throws IOException{
+    private static void nukeOldDeployed(Path path) throws IOException {
         FileUtils.deleteDirectory(path.toFile()); //returns safely if directory does not exist.
     }
 
@@ -126,15 +129,44 @@ public class MillenaireIntegration {
         });
     }
 
-    private static void writeVersionFile(Path path) throws IOException{
+    private static void writeVersionFile(Path path) throws IOException {
         try {
             Files.writeString(path,
                     INTEGRATION_VERSION + System.lineSeparator() +
-                    "#This file is used by " + Constants.MOD_ID +  " to determine integration version. Please do not edit it, unless want to prevent deployment (set it to -1)." + System.lineSeparator()
+                            "#This file is used by " + Constants.MOD_ID + " to determine integration version. Please do not edit it, unless want to prevent deployment (set it to -1)." + System.lineSeparator()
             );
         } catch (IOException e) {
             Constants.LOG.error("Error while attempting to write version.txt to /millenaire-custom/" + Constants.MOD_ID + "/: " + e);
         }
     }
 
+    public static class YafdaMillenaireTestingCommandsDevEnvOnly {
+        @SubscribeEvent
+        public void onRegisterCommands(RegisterCommandsEvent event) {
+            event.getDispatcher().register(
+                    Commands.literal("yafda_show_millenaire_goals")
+                            .requires(source -> source.hasPermission(2))
+                            .executes(context -> {
+                                        if (context.getSource().isPlayer()) {
+
+                                            List<ResourceLocation> getAllIds = Millenaire.getGoalRegistry().getAllIds();
+                                            for (ResourceLocation rl : getAllIds) {
+                                                context.getSource().sendSystemMessage(Component.literal(rl.toString()));
+                                            }
+
+                                            return 1;
+                                        } else {
+                                            context.getSource().sendFailure(Component.literal("Must be a player executed command"));
+                                            return 0;
+                                        }
+
+                                    }
+                            ));
+        }
+    }
+
+
 }
+
+
+

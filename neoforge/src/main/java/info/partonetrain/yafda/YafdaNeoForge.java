@@ -13,6 +13,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.fluids.FluidType;
@@ -77,6 +78,7 @@ public class YafdaNeoForge {
         }
         if(Services.PLATFORM.isModLoaded("millenaire")){
             MillenaireIntegration.load();
+            NeoForge.EVENT_BUS.register(new MillenaireIntegration.YafdaMillenaireTestingCommandsDevEnvOnly());
         }
         if(Services.PLATFORM.isModLoaded("environmental")){
             EnvironmentalIntegration.load();

@@ -15,7 +15,7 @@
     "millenaire:craft_steelshovel",
     "millenaire:craft_steelhoe",
 
-    "yafda:craft_ironknife"
+    "millenaire:craft_ironknife"
   ],
   "tags": [
     "helpInAttacks"

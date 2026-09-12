@@ -40,7 +40,7 @@
     "millenaire:craft_bow",
     "millenaire:craft_cauldron",
 
-    "yafda:craft_normanknife"
+    "millenaire:craft_normanknife"
   ],
   "tags": [
     "helpInAttacks"

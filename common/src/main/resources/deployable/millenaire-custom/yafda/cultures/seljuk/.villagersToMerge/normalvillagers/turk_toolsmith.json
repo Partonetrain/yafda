@@ -63,7 +63,7 @@
     "millenaire:cook_iron_ore",
     "millenaire:craft_iron",
 
-    "yafda:craft_ironknife"
+    "millenaire:craft_ironknife"
   ],
   "tags": [
     "helpInAttacks"

@@ -19,7 +19,6 @@ public class MalumIntegration {
     public static final DeferredHolder<Item, Item> SUSPISCIOUS_SAP = YafdaNeoForge.ITEMS.register(
             "suspicious_sap",
             () -> new SusSapItem(ModItems.drinkItem().food(SUS_SAP_PROPERTIES))
-
     );
 
     public static void load() {

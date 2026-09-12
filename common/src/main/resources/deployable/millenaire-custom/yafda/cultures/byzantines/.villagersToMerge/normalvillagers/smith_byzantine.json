@@ -51,7 +51,7 @@
     "millenaire:craft_bow",
     "millenaire:craft_arrow",
 
-    "yafda:craft_byzantineknife"
+    "millenaire:craft_byzantineknife"
   ],
   "tags": [
     "helpInAttacks"

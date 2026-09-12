@@ -36,7 +36,7 @@
     "millenaire:craft_furhelmet",
     "millenaire:craft_furlegs",
 
-    "yafda:craft_flintknife"
+    "millenaire:craft_flintknife"
   ],
   "tags": [
     "helpInAttacks"
