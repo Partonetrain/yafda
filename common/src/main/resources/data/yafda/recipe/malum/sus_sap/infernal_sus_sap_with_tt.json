@@ -3,6 +3,9 @@
     {
       "type": "neoforge:mod_loaded",
       "modid": "malum"
+    },
+    {
+      "type": "yafda:trains_tweaks_dexterity_exists"
     }
   ],
   "fabric:load_conditions": [
@@ -23,7 +26,7 @@
       "tag": "yafda:sus_sap_ingredients"
     },
     {
-      "item": "malum:sacred_spirit"
+      "item": "malum:infernal_spirit"
     },
     {
       "item": "minecraft:glass_bottle"
@@ -35,7 +38,7 @@
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "id": "minecraft:absorption",
+          "id": "trains_tweaks:dexterity",
           "duration": 160
         }
       ]

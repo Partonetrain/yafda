@@ -7,6 +7,9 @@
     {
       "type": "neoforge:mod_loaded",
       "modid": "ars_elemental"
+    },
+    {
+      "type": "yafda:old_ars_delight"
     }
   ],
   "fabric:load_conditions": [

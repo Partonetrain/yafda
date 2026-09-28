@@ -3,6 +3,12 @@
     {
       "type": "neoforge:mod_loaded",
       "modid": "malum"
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "yafda:trains_tweaks_dexterity_exists"
+      }
     }
   ],
   "fabric:load_conditions": [
@@ -35,8 +41,8 @@
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "id": "minecraft:absorption",
-          "duration": 80
+          "id": "minecraft:haste",
+          "duration": 160
         }
       ]
     }

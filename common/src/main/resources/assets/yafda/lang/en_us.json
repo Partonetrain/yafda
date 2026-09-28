@@ -54,5 +54,7 @@
   "goal.millenaire.craft_normanknife": "Crafting Norman Knife",
   "goal.millenaire.craft_byzantineknife": "Crafting Byzantine Knife",
   "goal.millenaire.craft_flintknife": "Crafting Flint Knife",
-  "goal.millenaire.craft_mayanknife": "Crafting Mayan Knife"
+  "goal.millenaire.craft_mayanknife": "Crafting Mayan Knife",
+
+  "tooltip.yafda.instant_health": "Instant Health"
 }

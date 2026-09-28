@@ -25,6 +25,9 @@ public class YafdaMixinPlugin implements IMixinConfigPlugin {
         if (mixinClassName.contains("integration/millenaire")) {
             return Services.PLATFORM.isModLoaded("millenaire");
         }
+        else if (mixinClassName.contains("integration/malum")) {
+            return Services.PLATFORM.isModLoaded("malum");
+        }
 
         return true;
     }

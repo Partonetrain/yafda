@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "plugin": "info.partonetrain.yafda.YafdaMixinPlugin",
   "mixins": [
+    "integration.malum.BottledDrinkItemMixin",
     "integration.millenaire.MillFoodItemMixin"
   ],
   "client": [

@@ -3,9 +3,6 @@ package info.partonetrain.yafda.integration;
 import info.partonetrain.yafda.Constants;
 import info.partonetrain.yafda.YafdaNeoForge;
 import info.partonetrain.yafda.item.YafdaKnifeItem;
-import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
@@ -13,28 +10,30 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.SimpleTier;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforgespi.locating.IModFile;
 import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.NotNull;
-import org.millenaire.Millenaire;
 import org.millenaire.content.ContentDirectoryManager;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
 public class MillenaireIntegration {
 
-    static final int INTEGRATION_VERSION = 2; //up this every time a change happens
+
+    public static final Map<String, Integer> DEPLOYED_VERSIONS = new HashMap<>();
+
+    static {
+        DEPLOYED_VERSIONS.put("yafda", 4);
+    }
 
     static final Tier normanKnifeTier = new SimpleTier(BlockTags.INCORRECT_FOR_IRON_TOOL, 1561, 10.0F, 4.0F, 10, () -> Ingredient.of(new ItemLike[]{Items.IRON_INGOT})); //NormanMaterials.NORMAN_TOOL;
     //static final Tier indianKnifeTier = Tiers.WOOD;
@@ -63,12 +62,16 @@ public class MillenaireIntegration {
         Constants.LOG.info("Millenaire integration loaded");
     }
 
-    public static void deployCustomFolder(MinecraftServer server) {
+    final static String MODID = Constants.MOD_ID;
+
+    public static void deployCustomFolder(MinecraftServer server, String folderToDeploy) {
         Constants.LOG.info("Checking /millenaire-custom/ deployed content...");
         ContentDirectoryManager.init(server);
         Path customDir = ContentDirectoryManager.getCustomDir();
-        Path yafdaDir = customDir.resolve(Constants.MOD_ID);
-        Path versionFile = yafdaDir.resolve("version.txt");
+        Path folderPath = customDir.resolve(folderToDeploy);
+        Path versionFile = folderPath.resolve("version.txt");
+
+        boolean doesNotExistYet = false;
 
         //first check if it's already there and up to date.
         int currentlyDeployedVersion = 0;
@@ -78,31 +81,38 @@ public class MillenaireIntegration {
                 if (firstLine.isPresent()) {
                     currentlyDeployedVersion = Integer.parseInt(firstLine.get());
                 } else {
-                    Constants.LOG.error("Found /millenaire-custom/" + Constants.MOD_ID + "/version.txt, but it was empty! Assuming version " + currentlyDeployedVersion);
+                    Constants.LOG.error("Found /millenaire-custom/" + folderToDeploy + "/version.txt, but it was empty! Assuming version " + currentlyDeployedVersion);
                 }
             } catch (IOException e) {
-                Constants.LOG.error("Error while attempting to read /millenaire-custom/" + Constants.MOD_ID + "/version.txt: " + e);
+                Constants.LOG.error("Error while attempting to read /millenaire-custom/" + folderToDeploy + "/version.txt: " + e);
             }
         }
+        else{
+            doesNotExistYet = true;
+        }
 
-        if (currentlyDeployedVersion == -1) {
-            Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is set to -1, ignoring");
+        final int VERSION_IN_JAR = DEPLOYED_VERSIONS.get(folderToDeploy);
+
+        if (!doesNotExistYet && currentlyDeployedVersion == -1) {
+            Constants.LOG.info("Deployed /millenaire-custom/" + folderToDeploy + "/version.txt is set to -1, ignoring");
             return;
         }
-        if (currentlyDeployedVersion == INTEGRATION_VERSION) {
-            Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is up-to-date.");
+        if (!doesNotExistYet && currentlyDeployedVersion == VERSION_IN_JAR) {
+            Constants.LOG.info("Deployed /millenaire-custom/" + folderToDeploy + " is up-to-date.");
             return;
-        } else if (currentlyDeployedVersion < INTEGRATION_VERSION) {
+        } else if (currentlyDeployedVersion < VERSION_IN_JAR) {
             //now actually deploy.
-            IModFile thisJar = ModList.get().getModFileById(Constants.MOD_ID).getFile();
-            Path customToDeploy = thisJar.findResource("deployable", "millenaire-custom");
+            IModFile thisJar = ModList.get().getModFileById(MODID).getFile();
+            Path customToDeploy = thisJar.findResource("deployable", "millenaire-custom", folderToDeploy);
             try {
-                Constants.LOG.info("Deployed /millenaire-custom/" + Constants.MOD_ID + "/ is out-of-date. Deleting old data.");
-                nukeOldDeployed(yafdaDir);
-                copyFromTo(customToDeploy, customDir);
-                writeVersionFile(versionFile);
+                if(!doesNotExistYet) {
+                    Constants.LOG.info("Deployed /millenaire-custom/" + folderToDeploy + " is out-of-date. Deleting old data.");
+                }
+                nukeOldDeployed(folderPath); //deletes regardless of if text file exists. safely does nothing if no folder.
+                copyFromTo(customToDeploy, folderPath);
+                writeVersionFile(versionFile, VERSION_IN_JAR);
             } catch (Exception e) {
-                Constants.LOG.error("Error while attempting to deploy to /millenaire-custom/: " + e);
+                Constants.LOG.error("Error while attempting to deploy to /millenaire-custom/" + folderToDeploy + " :" + e);
             }
         }
     }
@@ -129,39 +139,14 @@ public class MillenaireIntegration {
         });
     }
 
-    private static void writeVersionFile(Path path) throws IOException {
+    private static void writeVersionFile(Path path, int version) throws IOException {
         try {
             Files.writeString(path,
-                    INTEGRATION_VERSION + System.lineSeparator() +
-                            "#This file is used by " + Constants.MOD_ID + " to determine integration version. Please do not edit it, unless want to prevent deployment (set it to -1)." + System.lineSeparator()
+                    version + System.lineSeparator() +
+                            "#This file is used by " + MODID + " to determine version. Please do not edit it, unless want to prevent deployment (set it to -1)." + System.lineSeparator()
             );
         } catch (IOException e) {
-            Constants.LOG.error("Error while attempting to write version.txt to /millenaire-custom/" + Constants.MOD_ID + "/: " + e);
-        }
-    }
-
-    public static class YafdaMillenaireTestingCommandsDevEnvOnly {
-        @SubscribeEvent
-        public void onRegisterCommands(RegisterCommandsEvent event) {
-            event.getDispatcher().register(
-                    Commands.literal("yafda_show_millenaire_goals")
-                            .requires(source -> source.hasPermission(2))
-                            .executes(context -> {
-                                        if (context.getSource().isPlayer()) {
-
-                                            List<ResourceLocation> getAllIds = Millenaire.getGoalRegistry().getAllIds();
-                                            for (ResourceLocation rl : getAllIds) {
-                                                context.getSource().sendSystemMessage(Component.literal(rl.toString()));
-                                            }
-
-                                            return 1;
-                                        } else {
-                                            context.getSource().sendFailure(Component.literal("Must be a player executed command"));
-                                            return 0;
-                                        }
-
-                                    }
-                            ));
+            Constants.LOG.error("Error while attempting to write version.txt to /millenaire-custom/: " + e);
         }
     }
 

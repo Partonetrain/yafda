@@ -1,5 +1,6 @@
 package info.partonetrain.yafda.integration;
 
+import com.sammy.malum.registry.common.item.MalumItems;
 import info.partonetrain.yafda.Constants;
 import info.partonetrain.yafda.YafdaNeoForge;
 import net.minecraft.sounds.SoundEvent;
@@ -26,6 +27,7 @@ public class MalumIntegration {
     }
 
     public static class SusSapItem extends SuspiciousStewItem {
+
         public SusSapItem(Properties properties) {
             super(properties);
         }
